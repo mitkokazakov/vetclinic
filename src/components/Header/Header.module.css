@@ -1,0 +1,25 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    align-items: center;
+}
+
+.imageWrapper{
+    margin-left: 50px;
+}
+.ul{
+    display:flex;
+    margin-right: 50px;
+    align-items: center;
+}
+
+.li{
+    padding: 10px;
+    margin: 10px;
+}
+
+.li:hover{
+    color: #C22083;
+    cursor: pointer;
+}

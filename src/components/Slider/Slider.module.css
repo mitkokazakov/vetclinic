@@ -1,0 +1,28 @@
+.mainSlider{
+    background-image: url(../../images/bg1.jpg);
+    min-height: 550px;
+    display: flex;
+    background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+    
+}
+
+.textContent{
+    margin-top: 250px;
+    margin-left: 100px;
+    max-width: 400px;
+}
+
+.textContent>h2{
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.textContent>p{
+    font-size: 20px;
+}
+
+.pinkText{
+    color:palevioletred;
+}

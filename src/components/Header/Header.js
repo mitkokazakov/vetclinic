@@ -1,6 +1,7 @@
 import style from './Header.module.css';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from '../../images/logo.png';
+import {Link} from 'react-router-dom';
 
 function Header() {
 
@@ -12,12 +13,12 @@ function Header() {
             </div>
 
             <ul className={style.ul}>
-                <li className={style.li}>Home</li>
-                <li className={style.li}>Who We Are</li>
-                <li className={style.li}>Services</li>
-                <li className={style.li}>Pets</li>
-                <li className={style.li}><a href="#docs">Doctors</a></li>
-                <li className={style.li}>Contacts</li>
+                <li className={style.li}><Link to="/">Home</Link></li>
+                <li className={style.li}><Link to="/services">Services</Link></li>
+                <li className={style.li}><Link to="/docs">Doctors</Link></li>
+                <li className={style.li}><Link to="/contacts">Contacts</Link></li>
+                <li className={style.li}><Link to="/register">Register</Link></li>
+                <li className={style.li}><Link to="/login">Login</Link></li>
             </ul>
         </div>
     );

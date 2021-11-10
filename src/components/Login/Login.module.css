@@ -1,0 +1,19 @@
+.loginHeader>hr{
+    min-height: 4px;
+    background-color: black;
+}
+
+.loginHeader>h1{
+    color: #C22083;
+}
+
+
+.loginInput{
+    border: 1px solid #C22083;
+}
+
+.loginButton{
+    background-color: #C22083;
+    color: white;
+    font-weight: bold;
+}

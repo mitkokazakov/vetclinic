@@ -1,9 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from './Login.module.css';
 
+import { useContext } from 'react';
+
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+
+import * as clinicServices from '../../services/clinicServices';
+
+import UserContext from '../UserContext/UserContext';
 
 const scheme = yup.object().shape({
     email: yup.string().email().required(),
@@ -16,14 +22,18 @@ function Login() {
         resolver: yupResolver(scheme)
     });
 
+    const {userToken, setUserToken} = useContext(UserContext);
+
     function onSubmitHandler(data,e){
 
         e.preventDefault();
 
-        let username = e.target.email.value;
-        let password = e.target.password.value;
-
+        let currentUser = {
+            username: e.target.email.value,
+            password: e.target.password.value
+        }
         
+        clinicServices.loginUser(currentUser).then(result => result.json()).then(data => setUserToken(data.token));
     }
 
     let loginInputStyles = style.loginInput + ' form-control mt-2';

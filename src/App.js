@@ -1,10 +1,12 @@
 import './App.css';
 import Header from './components/Header/Header';
-import Slider from './components/Slider/Slider';
+import HomePage from './components/HomePage/HomePage';
 import Main from './components/Main/Main';
 import UserContext from './components/UserContext/UserContext';
+import Login from './components/Login/Login';
 
 import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import * as clinicServices from './services/clinicServices';
 
@@ -30,8 +32,13 @@ function App() {
     <div className="App">
       <UserContext.Provider value={{ userToken, setUserToken, currentUser }}>
         <Header />
-        <Slider />
-        <Main />
+        <Routes>
+          <Route path="/" exact element={<HomePage/>}></Route>
+          <Route path="/manage" element={<Main/>}></Route>
+          <Route path="/login" element={<Login/>}></Route>
+        </Routes>
+
+
       </UserContext.Provider>
     </div>
   );

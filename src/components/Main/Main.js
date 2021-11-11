@@ -6,8 +6,7 @@ function Main() {
     return (
         <div>
             <Routes>
-                <Route path="/" exact></Route>
-                <Route path="/login" element={<Login/>}></Route>
+                
             </Routes>
         </div>
     );

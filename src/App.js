@@ -13,17 +13,22 @@ function App() {
   const [userToken, setUserToken] = useState('');
   const [currentUser, setCurrentUser] = useState({});
 
-  //console.log(userToken);
+
 
   useEffect(() => {
-    clinicServices.getUser(userToken).then(data => setCurrentUser(data));
-    console.log(currentUser);
+    if (userToken != '') {
+      console.log(userToken);
+      clinicServices.getUser(userToken).then(data => setCurrentUser(data));
+    }
+
+
   }, [userToken])
 
+  console.log(currentUser);
 
   return (
     <div className="App">
-      <UserContext.Provider value={{ userToken, setUserToken }}>
+      <UserContext.Provider value={{ userToken, setUserToken, currentUser }}>
         <Header />
         <Slider />
         <Main />

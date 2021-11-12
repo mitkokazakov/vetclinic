@@ -1,0 +1,36 @@
+.doctorsHeading>h1{
+    font-weight: bold;
+}
+
+.doctorsHeading>hr{
+    max-width: 300px;
+    border: 4px solid #C22083;
+    margin-left: 475px;
+}
+
+.doctorsHeading>p{
+    max-width: 600px;
+    margin-left: 320px;
+}
+
+.doctorImage{
+    width: 100%;
+}
+
+.doctorInfo{
+    text-align: left;
+    margin-top: 30px;
+    
+}
+
+.doctorInfo>h4{
+    font-weight: bold;
+}
+
+.doctorInfo>h5{
+    font-weight: bold;
+}
+
+.doctorContainer{
+    max-width: 250px;
+}

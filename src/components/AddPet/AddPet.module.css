@@ -1,0 +1,19 @@
+.addPetHeader>hr{
+    min-height: 4px;
+    background-color: black;
+}
+
+.addPetHeader>h1{
+    color: #C22083;
+}
+
+
+.addPetInput{
+    border: 1px solid #C22083;
+}
+
+.addPetButton{
+    background-color: #C22083;
+    color: white;
+    font-weight: bold;
+}

@@ -4,6 +4,10 @@ import HomePage from './components/HomePage/HomePage';
 import Main from './components/Main/Main';
 import UserContext from './components/UserContext/UserContext';
 import Login from './components/Login/Login';
+import Footer from './components/Footer/Footer';
+import Manage from './components/Manage/Manage';
+import AddPet from './components/AddPet/AddPet';
+
 
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -34,10 +38,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" exact element={<HomePage/>}></Route>
-          <Route path="/manage" element={<Main/>}></Route>
+          <Route path="/manage" exact element={<Manage/>}></Route>
           <Route path="/login" element={<Login/>}></Route>
         </Routes>
-
+        <Footer />
 
       </UserContext.Provider>
     </div>

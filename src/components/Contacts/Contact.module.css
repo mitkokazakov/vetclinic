@@ -1,0 +1,42 @@
+.contacts{
+    margin-top: 60px;
+}
+
+.contactsHr{
+    height: 4px;
+    background-color: #C22083;
+    max-width: 300px;
+    margin-left: 478px;
+}
+.contactContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.contactAddress{
+    margin-right: 400px;
+}
+
+.contactAddress>h4{
+    font-weight: bold;
+}
+
+.contactAddress>p{
+    margin: 5px;
+}
+
+.contactHours>table>tr>td{
+    padding: 10px;
+    text-align: left;
+}
+
+.contactHours>h4{
+    font-weight: bold;
+}
+
+.nameDay{
+    font-weight: bold;
+    width: 250px;
+}

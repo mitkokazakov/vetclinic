@@ -20,8 +20,8 @@ function Header() {
 
             <ul className={style.ul}>
                 <li className={style.li}><Link to="/">Home</Link></li>
-                <li className={style.li}><Link to="/services">Services</Link></li>
-                <li className={style.li}><Link to="/docs">Doctors</Link></li>
+                <li className={style.li}><Link to="/#services">Services</Link></li>
+                <li className={style.li}><Link to="/#docs">Doctors</Link></li>
                 <li className={style.li}><Link to="/manage">Manage</Link></li>
                 {
                     currentUser.userId != null ? <li className={style.li}><Link to="/logout">Logout</Link></li> : null

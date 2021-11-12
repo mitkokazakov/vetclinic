@@ -1,13 +1,14 @@
-import { Routes, Route } from 'react-router-dom';
-import Login from '../Login/Login';
+import Manage from '../Manage/Manage';
+import { Routes, Route, Link } from 'react-router-dom';
+
+import AddPet from '../AddPet/AddPet';
 
 function Main() {
 
     return (
-        <div>
-            <Routes>
-                
-            </Routes>
+        <div className="d-flex">
+            <Manage />
+            
         </div>
     );
 }

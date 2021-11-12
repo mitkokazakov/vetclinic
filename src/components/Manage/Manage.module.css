@@ -10,8 +10,16 @@
 
 .ulManage>li:hover{
     background-color: white;
-    color: #C22083;
+    
     cursor: pointer;
+}
+
+.ulManage>li>a{
+    color: white;
+}
+
+.ulManage>li>a:hover{
+    color: #C22083;
 }
 
 .containerManage{

@@ -21,11 +21,12 @@ h6 {
   color: #272727;
 }
 a {
-  color: #45aed6;
+  
   -webkit-transition: color 400ms, background-color 400ms;
   -moz-transition: color 400ms, background-color 400ms;
   -o-transition: color 400ms, background-color 400ms;
   transition: color 400ms, background-color 400ms;
+  text-decoration: none !important;
 }
 a:hover,
 a:focus {

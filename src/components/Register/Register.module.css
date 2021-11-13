@@ -1,4 +1,4 @@
-.registerHeader>hr{
+.registerHeader>div{
     min-height: 4px;
     background-color: black;
 }

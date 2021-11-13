@@ -12,7 +12,7 @@ function Register() {
 
                 <div className={style.registerHeader}>
                     <h1 >Register</h1>
-                    <hr className="mb-4"></hr>
+                    <div className="mb-4"></div>
                 </div>
 
                 <div className="form-group mb-3">

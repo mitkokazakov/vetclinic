@@ -10,7 +10,7 @@ import AddPet from './components/AddPet/AddPet';
 
 
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import * as clinicServices from './services/clinicServices';
 
@@ -36,11 +36,11 @@ function App() {
     <div className="App">
       <UserContext.Provider value={{ userToken, setUserToken, currentUser }}>
         <Header />
-        <Routes>
-          <Route path="/" exact element={<HomePage/>}></Route>
-          <Route path="/manage" exact element={<Manage/>}></Route>
-          <Route path="/login" element={<Login/>}></Route>
-        </Routes>
+        <Switch>
+          <Route path="/" exact component={HomePage}></Route>
+          <Route path="/manage"  component={Manage}></Route>
+          <Route path="/login" component={Login}></Route>
+        </Switch>
         <Footer />
 
       </UserContext.Provider>

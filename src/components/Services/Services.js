@@ -17,7 +17,7 @@ function Services() {
                 <div className="row">
                     <div className={iconsStyle}>
                         <div className={style.servicesIcons}>
-                        <i class="fas fa-coffee"></i>
+                        <i className="fas fa-coffee"></i>
                         </div>
                         <div className={style.iconsText}>
                             <h6>Quick Coffee</h6>
@@ -27,7 +27,7 @@ function Services() {
 
                     <div className={iconsStyle}>
                         <div className={style.servicesIcons}>
-                        <i class="fas fa-radiation"></i>
+                        <i className="fas fa-radiation"></i>
                         </div>
                         <div className={style.iconsText}>
                             <h6>Radiology</h6>
@@ -37,7 +37,7 @@ function Services() {
 
                     <div className={iconsStyle}>
                         <div className={style.servicesIcons}>
-                        <i class="fas fa-ambulance"></i>
+                        <i className="fas fa-ambulance"></i>
                         </div>
                         <div className={style.iconsText}>
                             <h6>Emergency</h6>
@@ -49,7 +49,7 @@ function Services() {
                 <div className="row mt-5">
                     <div className={iconsStyle}>
                         <div className={style.servicesIcons}>
-                        <i class="fas fa-brain"></i>
+                        <i className="fas fa-brain"></i>
                         </div>
                         <div className={style.iconsText}>
                             <h6>Neurology</h6>
@@ -59,7 +59,7 @@ function Services() {
 
                     <div className={iconsStyle}>
                         <div className={style.servicesIcons}>
-                        <i class="fa fa-compass"></i>
+                        <i className="fa fa-compass"></i>
                         </div>
                         <div className={style.iconsText}>
                             <h6>Ultrasound</h6>
@@ -69,7 +69,7 @@ function Services() {
 
                     <div className={iconsStyle}>
                         <div className={style.servicesIcons}>
-                        <i class="fas fa-heartbeat"></i>
+                        <i className="fas fa-heartbeat"></i>
                         </div>
                         <div className={style.iconsText}>
                             <h6>Cardiology</h6>

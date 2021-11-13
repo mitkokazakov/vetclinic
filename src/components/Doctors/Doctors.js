@@ -15,10 +15,10 @@ function Doctors() {
                     semper aliquam quis mattis quam.</p>
             </div>
             <div className="row mt-5 ms-5">
-                <div class="col-md-3 col-sm-6 ">
-                    <div class={style.doctorContainer}>
+                <div className="col-md-3 col-sm-6 ">
+                    <div className={style.doctorContainer}>
                         <img src={ImageDoc1} class={style.doctorImage} />
-                        <div class={style.doctorInfo}>
+                        <div className={style.doctorInfo}>
                             <h4>Dr. Jonh Dow</h4>
                             <h5>Founder</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
@@ -27,10 +27,10 @@ function Doctors() {
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6 ">
-                    <div class={style.doctorContainer}>
+                <div className="col-md-3 col-sm-6 ">
+                    <div className={style.doctorContainer}>
                         <img src={ImageDoc2} class={style.doctorImage} />
-                        <div class={style.doctorInfo}>
+                        <div className={style.doctorInfo}>
                             <h4>Dr. Jonh Dow</h4>
                             <h5>Founder</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
@@ -39,10 +39,10 @@ function Doctors() {
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6">
-                    <div class={style.doctorContainer}>
+                <div className="col-md-3 col-sm-6">
+                    <div className={style.doctorContainer}>
                         <img src={ImageDoc3} class={style.doctorImage} />
-                        <div class={style.doctorInfo}>
+                        <div className={style.doctorInfo}>
                             <h4>Dr. Jonh Dow</h4>
                             <h5>Founder</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
@@ -51,10 +51,10 @@ function Doctors() {
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6">
-                    <div class={style.doctorContainer}>
+                <div className="col-md-3 col-sm-6">
+                    <div className={style.doctorContainer}>
                         <img src={ImageDoc4} class={style.doctorImage} />
-                        <div class={style.doctorInfo}>
+                        <div className={style.doctorInfo}>
                             <h4>Dr. Jonh Dow</h4>
                             <h5>Founder</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>

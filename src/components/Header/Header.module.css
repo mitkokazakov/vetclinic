@@ -19,7 +19,11 @@
     margin: 10px;
 }
 
-.li:hover{
+.li>a{
+    color: black;
+}
+
+.li>a:hover{
     color: #C22083;
     cursor: pointer;
 }

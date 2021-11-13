@@ -1,13 +1,11 @@
 import './App.css';
 import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
-import Main from './components/Main/Main';
 import UserContext from './components/UserContext/UserContext';
 import Login from './components/Login/Login';
 import Footer from './components/Footer/Footer';
 import Manage from './components/Manage/Manage';
-import AddPet from './components/AddPet/AddPet';
-
+import Register from './components/Register/Register';
 
 import { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
@@ -40,6 +38,7 @@ function App() {
           <Route path="/" exact component={HomePage}></Route>
           <Route path="/manage"  component={Manage}></Route>
           <Route path="/login" component={Login}></Route>
+          <Route path="/register" component={Register}></Route>
         </Switch>
         <Footer />
 

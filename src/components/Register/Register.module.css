@@ -1,0 +1,20 @@
+.registerHeader>hr{
+    min-height: 4px;
+    background-color: black;
+}
+
+.registerHeader>h1{
+    color: #C22083;
+}
+
+
+.registerInput{
+    border: 1px solid #C22083;
+}
+
+.registerButton{
+    background-color: #C22083;
+    color: white;
+    font-weight: bold;
+}
+

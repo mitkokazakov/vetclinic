@@ -12,8 +12,8 @@ import * as clinicServices from '../../services/clinicServices';
 import UserContext from '../UserContext/UserContext';
 
 const scheme = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().min(6).required()
+    email: yup.string().email().required("Not valid email. Try again"),
+    password: yup.string().min(6).required("Password must be at least 6 characters long")
 });
 
 function Login() {

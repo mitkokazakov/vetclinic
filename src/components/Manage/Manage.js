@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Switch, Route, Link} from 'react-router-dom';
 
 import AddPet from '../AddPet/AddPet';
-import Login from '../Login/Login';
+import ListAllPets from '../ListAllPets/ListAllPets';
+import ListAllUsers from '../ListAllUsers/ListAllUsers';
 
 function Manage() {
 
@@ -22,6 +23,8 @@ function Manage() {
             <div className={style.containerManage}>
                 <Switch>
                     <Route path="/manage/addPet" exact component={AddPet}></Route>
+                    <Route path="/manage/listAllPets" exact component={ListAllPets}></Route>
+                    <Route path="/manage/listAllUsers" exact component={ListAllUsers}></Route>
                 </Switch>
             </div>
         </div>

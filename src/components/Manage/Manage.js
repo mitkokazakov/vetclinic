@@ -1,12 +1,24 @@
 import style from './Manage.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { Switch, Route, Link} from 'react-router-dom';
+import { useContext, useEffect } from 'react';
 
 import AddPet from '../AddPet/AddPet';
 import ListAllPets from '../ListAllPets/ListAllPets';
 import ListAllUsers from '../ListAllUsers/ListAllUsers';
+import UserContext from '../UserContext/UserContext';
 
-function Manage() {
+function Manage({history}) {
+
+    const {currentUser} = useContext(UserContext);
+
+    useEffect(() => {
+        if(currentUser.isLogged == false){
+            history.push("/login");
+        }
+    },[]);
+
 
     return (
         <div className="row d-flex">

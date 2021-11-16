@@ -24,13 +24,13 @@ function Header() {
                 <li className={style.li}><Link to="/#docs">Doctors</Link></li>
                 <li className={style.li}><Link to="/manage">Manage</Link></li>
                 {
-                    currentUser.userId != null ? <li className={style.li}><Link to="/logout">Logout</Link></li> : null
+                    currentUser.isLogged ? <li className={style.li}><Link to="/logout">Logout</Link></li> : null
                 }
                 {
-                    currentUser.userId == null ? <li className={style.li}><Link to="/register">Register</Link></li> : null
+                    !currentUser.isLogged ? <li className={style.li}><Link to="/register">Register</Link></li> : null
                 }
                 {
-                    currentUser.userId == null ? <li className={style.li}><Link to="/login">Login</Link></li> : null
+                    !currentUser.isLogged ? <li className={style.li}><Link to="/login">Login</Link></li> : null
                 }
                 
                 

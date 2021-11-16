@@ -13,10 +13,10 @@ import UserContext from '../UserContext/UserContext';
 
 const scheme = yup.object().shape({
     email: yup.string().email().required("Not valid email. Try again"),
-    password: yup.string().min(6).required("Password must be at least 6 characters long")
+    password: yup.string().min(6).required("Password is required!")
 });
 
-function Login() {
+function Login({history}) {
 
     const {register,handleSubmit,formState: {errors}} = useForm({
         resolver: yupResolver(scheme)
@@ -34,6 +34,7 @@ function Login() {
         }
         
         clinicServices.loginUser(currentUser).then(result => result.json()).then(data => setUserToken(data.token));
+        history.push("/")
     }
 
     let loginInputStyles = style.loginInput + ' form-control mt-2';

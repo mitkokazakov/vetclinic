@@ -13,7 +13,7 @@ function SinglePet({name,breed,kind,age,petId}) {
             <div className="card-body">
                 <h5 className={petNameStyles}>{name}</h5>
                 <p className="card-text">{kind} - {breed}</p>
-                <p className="card-text"><small class="text-muted">Age: {age}</small></p>
+                <p className="card-text"><small className="text-muted">Age: {age}</small></p>
                 <button className={petBtnStyles}>View</button>
             </div>
         </div>

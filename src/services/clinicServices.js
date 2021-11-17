@@ -22,3 +22,16 @@ export const getUser = (token) => {
         .then(result => result.json())
         .catch(err => console.log(err));
 }
+
+export const registerUser = (user) => {
+
+    const url = 'https://localhost:44384/auth/register';
+
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(user)
+    }).catch(err => console.log(err))
+}

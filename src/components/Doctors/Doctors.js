@@ -17,7 +17,7 @@ function Doctors() {
             <div className="row mt-5 ms-5">
                 <div className="col-md-3 col-sm-6 ">
                     <div className={style.doctorContainer}>
-                        <img src={ImageDoc1} class={style.doctorImage} />
+                        <img src={ImageDoc1} className={style.doctorImage} />
                         <div className={style.doctorInfo}>
                             <h4>Dr. Jonh Dow</h4>
                             <h5>Founder</h5>
@@ -29,7 +29,7 @@ function Doctors() {
 
                 <div className="col-md-3 col-sm-6 ">
                     <div className={style.doctorContainer}>
-                        <img src={ImageDoc2} class={style.doctorImage} />
+                        <img src={ImageDoc2} className={style.doctorImage} />
                         <div className={style.doctorInfo}>
                             <h4>Dr. Jonh Dow</h4>
                             <h5>Founder</h5>
@@ -41,7 +41,7 @@ function Doctors() {
 
                 <div className="col-md-3 col-sm-6">
                     <div className={style.doctorContainer}>
-                        <img src={ImageDoc3} class={style.doctorImage} />
+                        <img src={ImageDoc3} className={style.doctorImage} />
                         <div className={style.doctorInfo}>
                             <h4>Dr. Jonh Dow</h4>
                             <h5>Founder</h5>
@@ -53,7 +53,7 @@ function Doctors() {
 
                 <div className="col-md-3 col-sm-6">
                     <div className={style.doctorContainer}>
-                        <img src={ImageDoc4} class={style.doctorImage} />
+                        <img src={ImageDoc4} className={style.doctorImage} />
                         <div className={style.doctorInfo}>
                             <h4>Dr. Jonh Dow</h4>
                             <h5>Founder</h5>

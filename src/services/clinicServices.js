@@ -1,6 +1,6 @@
 export const loginUser = (user) => {
 
-    const url = 'https://localhost:44373/auth/login';
+    const url = 'https://localhost:44384/auth/login';
 
     return fetch(url, {
         method: 'POST',
@@ -14,7 +14,7 @@ export const loginUser = (user) => {
 
 export const getUser = (token) => {
 
-    const url = 'https://localhost:44373/auth/user';
+    const url = 'https://localhost:44384/auth/user';
 
     const finalUrl = url + `/${token}`;
 

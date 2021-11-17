@@ -12,8 +12,8 @@ import * as clinicServices from '../../services/clinicServices';
 import UserContext from '../UserContext/UserContext';
 
 const scheme = yup.object().shape({
-    email: yup.string().email().required("Not valid email. Try again"),
-    password: yup.string().min(6).required("Password is required!")
+    username: yup.string().email().required("Not valid email. Try again"),
+    password: yup.string().min(6, "Password must be at least 6 characters long!").required("Password is required!")
 });
 
 function Login({history}) {
@@ -29,7 +29,7 @@ function Login({history}) {
         e.preventDefault();
 
         let currentUser = {
-            username: e.target.email.value,
+            username: e.target.username.value,
             password: e.target.password.value
         }
         
@@ -52,8 +52,8 @@ function Login({history}) {
 
                 <div className="form-group mb-3">
                     <label htmlFor="email">Email</label>
-                    <input type="text" className={loginInputStyles} id="email" name="email" aria-describedby="emailHelp" placeholder="Email..." {...register("email")} />
-                    <span>{errors.email?.message}</span>
+                    <input type="text" className={loginInputStyles} id="username" name="username" aria-describedby="emailHelp" placeholder="Email..." {...register("username")} />
+                    <span>{errors.username?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="password">Password</label>

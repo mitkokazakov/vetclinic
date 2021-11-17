@@ -17,6 +17,7 @@ function Contact() {
                 <div className={style.contactHours}>
                     <h4>Walk-in Hours</h4>
                     <table>
+                        <tbody>
                         <tr>
                             <td className={style.nameDay}>Monday & Tuesday</td>
                             <td>7am-8pm</td>
@@ -41,6 +42,7 @@ function Contact() {
                             <td className={style.nameDay}>Saturday</td>
                             <td>7am-8pm</td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

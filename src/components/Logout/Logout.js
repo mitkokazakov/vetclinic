@@ -10,7 +10,8 @@ function Logout({history}){
         userId: null,
         firstName: null,
         lastName: null,
-        isLogged: false
+        isLogged: false,
+        role: null
     }
 
     setUserToken('');

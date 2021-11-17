@@ -16,7 +16,15 @@ import * as clinicServices from './services/clinicServices';
 function App() {
 
   const [userToken, setUserToken] = useState('');
-  const [currentUser, setCurrentUser] = useState({ userId: null, firstName: null, lastName: null, isLogged: false });
+  const [currentUser, setCurrentUser] = useState(
+    {
+      userId: null,
+      firstName: null,
+      lastName: null,
+      isLogged: false,
+      role: null
+    }
+  );
 
   //let userTokenFromStorage = localStorage.getItem("userToken");
 
@@ -29,7 +37,8 @@ function App() {
           userId: data.userId,
           firstName: data.firstName,
           lastName: data.lastName,
-          isLogged: true
+          isLogged: true,
+          role: data.role
         }));
       currentUser.isLogged = true;
       //localStorage.setItem("userInfo", JSON.stringify(currentUser));

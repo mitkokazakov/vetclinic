@@ -13,11 +13,11 @@ function Manage({history}) {
 
     const {currentUser} = useContext(UserContext);
 
-    useEffect(() => {
-        if(currentUser.isLogged == false){
-            history.push("/login");
-        }
-    },[]);
+    // useEffect(() => {
+    //     if(currentUser.isLogged == false){
+    //         history.push("/login");
+    //     }
+    // },[]);
 
 
     return (

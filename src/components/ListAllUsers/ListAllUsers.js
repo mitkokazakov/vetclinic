@@ -1,6 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
+
+import * as clinicServices from '../../services/clinicServices';
 
 function ListAllUsers() {
+
+    const [allUsers, setAllUsers] = useState([]);
+
+    useEffect(() => {
+
+        clinicServices.getAllUsers().then(data => setAllUsers(data));
+
+    },[allUsers])
 
     return (
 
@@ -12,18 +24,15 @@ function ListAllUsers() {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Mitko Kazakov</td>
-                    <td>Stara Zagora, Samara 3 ap.68 et.B</td>
-                </tr>
-                <tr>
-                    <td>Mitko Kazakov</td>
-                    <td>Stara Zagora, Samara 3 ap.68 et.B</td>
-                </tr>
-                <tr>
-                    <td>Mitko Kazakov</td>
-                    <td>Stara Zagora, Samara 3 ap.68 et.B</td>
-                </tr>
+
+                {
+                    allUsers.map(user => {
+                        return <tr>
+                        <td><Link>{user.firstName + ' ' + user.lastName}</Link></td>
+                        <td>{user.town == null ? ' ' : user.town + ', ' + user.address == null ? ' ' : user.address}</td>
+                    </tr>
+                    })
+                }
             </tbody>
         </table>
 

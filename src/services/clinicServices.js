@@ -35,3 +35,12 @@ export const registerUser = (user) => {
         body: JSON.stringify(user)
     }).catch(err => console.log(err))
 }
+
+export const getAllUsers = () => {
+
+    const url = 'https://localhost:44384/auth/allusers';
+
+    return fetch(url)
+        .then(result => result.json())
+        .catch(err => console.log(err));
+}

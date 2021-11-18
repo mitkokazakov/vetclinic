@@ -1,11 +1,11 @@
 import style from './AddPet.module.css';
 
-function AddPet(){
+function AddPet() {
 
     let addPetInputStyles = style.addPetInput + ' form-control mt-2';
     let addPetButtonStyles = style.addPetButton + ' btn';
 
-    return(
+    return (
         <div className="row">
             <form className="col-md-6 col-sm-4 offset-md-3">
 
@@ -16,7 +16,7 @@ function AddPet(){
 
                 <div className="form-group mb-3">
                     <label htmlFor="firstName">Name</label>
-                    <input type="text" className={addPetInputStyles} id="name"  placeholder="Name..." />
+                    <input type="text" className={addPetInputStyles} id="name" placeholder="Name..." />
 
                 </div>
                 <div className="form-group mb-3">
@@ -30,6 +30,11 @@ function AddPet(){
                 <div className="form-group mb-3">
                     <label htmlFor="dateOfBirth">Date Of Birth</label>
                     <input type="date" className={addPetInputStyles} id="dateOfBirth" />
+                </div>
+                <div className="form-group mb-3">
+                    <label htmlFor="image">Image</label>
+                    <input className={addPetInputStyles} type="file" name="image" required id="image" />
+                    
                 </div>
 
                 <button type="submit" className={addPetButtonStyles}>Add</button>

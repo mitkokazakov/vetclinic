@@ -9,7 +9,6 @@ function Header() {
 
     const {currentUser} = useContext(UserContext);
 
-    //console.log(currentUser);
 
     return (
         <div className={style.header}>
@@ -23,6 +22,9 @@ function Header() {
                 <li className={style.li}><Link to="/#services">Services</Link></li>
                 <li className={style.li}><Link to="/#docs">Doctors</Link></li>
                 <li className={style.li}><Link to="/manage">Manage</Link></li>
+                {
+                    currentUser.role == "User" ? <li className={style.li}><Link to="/myprofile">Profile</Link></li> : null
+                }
                 {
                     currentUser.isLogged ? <li className={style.li}><Link to="/logout">Logout</Link></li> : null
                 }

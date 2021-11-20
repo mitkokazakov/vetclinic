@@ -5,9 +5,16 @@ function AddPet() {
     let addPetInputStyles = style.addPetInput + ' form-control mt-2';
     let addPetButtonStyles = style.addPetButton + ' btn';
 
+    function onSubmitAddPetHandler(e){
+
+        e.preventDefault();
+
+        let image = e.target.image.value;
+    }
+
     return (
         <div className="row">
-            <form className="col-md-6 col-sm-4 offset-md-3">
+            <form className="col-md-6 col-sm-4 offset-md-3"  onSubmit={onSubmitAddPetHandler}>
 
                 <div className={style.addPetHeader}>
                     <h1 >Add Pet</h1>
@@ -15,8 +22,8 @@ function AddPet() {
                 </div>
 
                 <div className="form-group mb-3">
-                    <label htmlFor="firstName">Name</label>
-                    <input type="text" className={addPetInputStyles} id="name" placeholder="Name..." />
+                    <label htmlFor="name">Name</label>
+                    <input type="text" className={addPetInputStyles} id="name" name="name" placeholder="Name..." />
 
                 </div>
                 <div className="form-group mb-3">

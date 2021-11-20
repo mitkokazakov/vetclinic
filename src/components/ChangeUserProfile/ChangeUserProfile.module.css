@@ -1,0 +1,20 @@
+.changeProfileHeader>div{
+    min-height: 4px;
+    background-color: black;
+}
+
+.changeProfileHeader>h1{
+    color: #C22083;
+}
+
+
+.changeProfileInput{
+    border: 1px solid #C22083;
+}
+
+.changeProfileButton{
+    background-color: #C22083;
+    color: white;
+    font-weight: bold;
+}
+

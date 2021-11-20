@@ -7,6 +7,8 @@ import Footer from './components/Footer/Footer';
 import Manage from './components/Manage/Manage';
 import Register from './components/Register/Register';
 import Logout from './components/Logout/Logout';
+import UserProfile from './components/UserProfile/UserProfile';
+import ChangeUserProfile from './components/ChangeUserProfile/ChangeUserProfile';
 
 import { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
@@ -58,6 +60,8 @@ function App() {
           <Route path="/login" component={Login}></Route>
           <Route path="/register" component={Register}></Route>
           <Route path="/logout" component={Logout}></Route>
+          <Route path="/myprofile" exact component={UserProfile}></Route>
+          <Route path="/changeprofile" component={ChangeUserProfile}></Route>
         </Switch>
         <Footer />
 

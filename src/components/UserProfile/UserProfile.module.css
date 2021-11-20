@@ -1,0 +1,47 @@
+.userHeader{
+    margin-top: 20px;
+}
+
+.userMainInfoHeader{
+    margin-top: 80px;
+}
+
+.userMainInfoHeaderH3{
+    margin-right: 570px;
+}
+
+.userMainInfoPetsH3{
+    margin-right: 590px;
+}
+
+.userHr{
+    height: 4px;
+    background-color: #C22083;
+    margin-bottom: 20px;
+    max-width: 300px;
+    margin-left: 475px;
+}
+
+.userInfoHr{
+    height: 4px;
+    background-color: #C22083;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: 245px;
+}
+
+.userMainInfoContent{
+    display: flex;
+}
+
+.rightAlign{
+    text-align: left;
+}
+
+.changeUserProfileButton{
+    background-color: #C22083;
+    color: white;
+    font-weight: bold;
+    max-width: 80px;
+    justify-content: center;
+}

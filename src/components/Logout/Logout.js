@@ -11,7 +11,11 @@ function Logout({history}){
         firstName: null,
         lastName: null,
         isLogged: false,
-        role: null
+        role: null,
+        address: null,
+        town: null,
+        email: null,
+        phone: null
     }
 
     setUserToken('');

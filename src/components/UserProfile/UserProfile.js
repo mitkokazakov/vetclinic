@@ -7,9 +7,9 @@ import UserContext from '../UserContext/UserContext';
 
 function UserProfile({history}) {
 
-    const {currentUser} = useContext(UserContext);
+     const {currentUser} = useContext(UserContext);
 
-    const userId = currentUser.userId;
+    // const userId = currentUser.userId;s
 
     let changeUserProfileButtonStyles = style.changeUserProfileButton + ' btn';
 
@@ -18,23 +18,24 @@ function UserProfile({history}) {
     }
 
 
-    const [user, setUser] = useState({
-        userId: null,
-        firstName: null,
-        lastName: null,
-        email: null,
-        phone: null,
-        town: null,
-        address: null
-    });
+    // const [user, setUser] = useState({
+    //     userId: null,
+    //     firstName: null,
+    //     lastName: null,
+    //     email: null,
+    //     phone: null,
+    //     town: null,
+    //     address: null
+    // });
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        clinicServices.getUserById(userId).then(data => setUser(data));
-    },[user])
+    //     clinicServices.getUserById(userId).then(data => setCurrentUser({
+
+    //     }));
+    // },[currentUser])
 
 
-    console.log(userId);
     return (
         
         <div className={style.userContainer}>
@@ -49,27 +50,27 @@ function UserProfile({history}) {
                         <div className="row">
                             <div className="col-md-6 mb-4">
                                 <h4>First Name</h4>
-                                <p>{user.firstName}</p>
+                                <p>{currentUser.firstName}</p>
                             </div>
                             <div className="col-md-6 mb-4">
                                 <h4>Last Name</h4>
-                                <p>{user.lastName}</p>
+                                <p>{currentUser.lastName}</p>
                             </div>
                             <div className="col-md-6 mb-4">
                                 <h4>Email</h4>
-                                <p>{user.email}</p>
+                                <p>{currentUser.email}</p>
                             </div>
                             <div className="col-md-6 mb-4">
                                 <h4>Phone</h4>
-                                <p>{user.phone}</p>
+                                <p>{currentUser.phone}</p>
                             </div>
                             <div className="col-md-6 mb-4">
                                 <h4>Town</h4>
-                                <p>{user.town}</p>
+                                <p>{currentUser.town}</p>
                             </div>
                             <div className="col-md-6 mb-4">
                                 <h4>Address</h4>
-                                <p>{user.address}</p>
+                                <p>{currentUser.address}</p>
                             </div>
                             <div className="col-md-12 mb-4">
                             <button onClick={onClickChangeButtonHandler} className={changeUserProfileButtonStyles}>Change</button>

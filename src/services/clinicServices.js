@@ -53,3 +53,17 @@ export const getUserById = (userId) => {
         .then(result => result.json())
         .catch(err => console.log(err));
 }
+
+export const changerUserInfo = (userInfo) => {
+
+    const url = 'https://localhost:44384/auth/changeuser';
+
+    return fetch(url,{
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(userInfo)
+    })
+        .catch(err => console.log(err))
+}

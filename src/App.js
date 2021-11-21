@@ -25,7 +25,11 @@ function App() {
       firstName: null,
       lastName: null,
       isLogged: false,
-      role: null
+      role: null,
+      address: null,
+      town: null,
+      email: null,
+      phone: null
     }
   );
 
@@ -41,7 +45,11 @@ function App() {
           firstName: data.firstName,
           lastName: data.lastName,
           isLogged: true,
-          role: data.role
+          role: data.role,
+          address: data.address,
+          town: data.town,
+          email: data.email,
+          phone: data.phone
         }));
       currentUser.isLogged = true;
       //localStorage.setItem("userInfo", JSON.stringify(currentUser));

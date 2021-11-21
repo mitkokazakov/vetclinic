@@ -44,3 +44,12 @@ export const getAllUsers = () => {
         .then(result => result.json())
         .catch(err => console.log(err));
 }
+
+export const getUserById = (userId) => {
+
+    const url = 'https://localhost:44384/auth/getuserbyid/' + userId;
+
+    return fetch(url)
+        .then(result => result.json())
+        .catch(err => console.log(err));
+}

@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 import UserContext from './components/UserContext/UserContext';
+import UserInformationContext from './components/UserContext/UserInformationContext';
 import Login from './components/Login/Login';
 import Footer from './components/Footer/Footer';
 import Manage from './components/Manage/Manage';

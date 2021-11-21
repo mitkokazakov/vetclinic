@@ -1,14 +1,42 @@
 import style from './UserProfile.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState, useEffect, useContext } from 'react';
+import * as clinicServices from '../../services/clinicServices';
+
+import UserContext from '../UserContext/UserContext';
 
 function UserProfile({history}) {
+
+    const {currentUser} = useContext(UserContext);
+
+    const userId = currentUser.userId;
 
     let changeUserProfileButtonStyles = style.changeUserProfileButton + ' btn';
 
     function onClickChangeButtonHandler(){
         history.push("/changeprofile");
     }
+
+
+    const [user, setUser] = useState({
+        userId: null,
+        firstName: null,
+        lastName: null,
+        email: null,
+        phone: null,
+        town: null,
+        address: null
+    });
+
+    useEffect(() => {
+
+        clinicServices.getUserById(userId).then(data => setUser(data));
+    },[user])
+
+
+    console.log(userId);
     return (
+        
         <div className={style.userContainer}>
             <div className={style.userHeader}>
 
@@ -21,27 +49,27 @@ function UserProfile({history}) {
                         <div className="row">
                             <div className="col-md-6 mb-4">
                                 <h4>First Name</h4>
-                                <p>Mitko</p>
+                                <p>{user.firstName}</p>
                             </div>
                             <div className="col-md-6 mb-4">
                                 <h4>Last Name</h4>
-                                <p>Kazakov</p>
+                                <p>{user.lastName}</p>
                             </div>
                             <div className="col-md-6 mb-4">
                                 <h4>Email</h4>
-                                <p>kazaka_92@abv.bg</p>
+                                <p>{user.email}</p>
                             </div>
                             <div className="col-md-6 mb-4">
                                 <h4>Phone</h4>
-                                <p>0895615876</p>
+                                <p>{user.phone}</p>
                             </div>
                             <div className="col-md-6 mb-4">
                                 <h4>Town</h4>
-                                <p>Stara Zagora</p>
+                                <p>{user.town}</p>
                             </div>
                             <div className="col-md-6 mb-4">
                                 <h4>Address</h4>
-                                <p>Samara 3, bl.3, ap.68</p>
+                                <p>{user.address}</p>
                             </div>
                             <div className="col-md-12 mb-4">
                             <button onClick={onClickChangeButtonHandler} className={changeUserProfileButtonStyles}>Change</button>

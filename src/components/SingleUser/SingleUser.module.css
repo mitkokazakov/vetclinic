@@ -1,0 +1,16 @@
+.userContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.infoAboutUser>h1:after{
+    content: '';
+    height: 4px;
+    width: 200px;
+    background-color: #C22083;
+}
+
+.petsContainer>button{
+    background-color: #C22083;
+    color: white;
+}

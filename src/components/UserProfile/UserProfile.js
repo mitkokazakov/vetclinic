@@ -1,6 +1,6 @@
 import style from './UserProfile.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState, useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import * as clinicServices from '../../services/clinicServices';
 
 import UserContext from '../UserContext/UserContext';
@@ -9,31 +9,11 @@ function UserProfile({history}) {
 
      const {currentUser} = useContext(UserContext);
 
-    // const userId = currentUser.userId;s
-
     let changeUserProfileButtonStyles = style.changeUserProfileButton + ' btn';
 
     function onClickChangeButtonHandler(){
         history.push("/changeprofile");
     }
-
-
-    // const [user, setUser] = useState({
-    //     userId: null,
-    //     firstName: null,
-    //     lastName: null,
-    //     email: null,
-    //     phone: null,
-    //     town: null,
-    //     address: null
-    // });
-
-    // useEffect(() => {
-
-    //     clinicServices.getUserById(userId).then(data => setCurrentUser({
-
-    //     }));
-    // },[currentUser])
 
 
     return (
@@ -72,9 +52,11 @@ function UserProfile({history}) {
                                 <h4>Address</h4>
                                 <p>{currentUser.address}</p>
                             </div>
-                            <div className="col-md-12 mb-4">
-                            <button onClick={onClickChangeButtonHandler} className={changeUserProfileButtonStyles}>Change</button>
-                            </div>
+                            {
+                                currentUser.role == "User" ? <div className="col-md-12 mb-4">
+                                <button onClick={onClickChangeButtonHandler} className={changeUserProfileButtonStyles}>Change</button>
+                                </div> : null
+                            }
                         </div>
 
 

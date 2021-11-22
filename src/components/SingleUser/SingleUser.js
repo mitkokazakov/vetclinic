@@ -1,16 +1,20 @@
 import style from './SingleUser.module.css';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
+
+import { Link } from 'react-router-dom';
 
 import * as clinicServices from '../../services/clinicServices';
 
 function SingleUser({ match }) {
+
+    let addPetBtnStyles = 'btn ' + style.petsContainerAddButton;
 
     let currentUserId = match.params.userId;
     const [userToDisplay, setUserToDisplay] = useState('');
 
     useEffect(() => {
         clinicServices.getUserById(currentUserId).then(data => setUserToDisplay(data));
-    },[currentUserId]);
+    }, [currentUserId]);
 
     return (
         <div className={style.userContainer}>
@@ -32,7 +36,7 @@ function SingleUser({ match }) {
             <div className={style.petsContainer}>
                 <h1>User's Pets</h1>
 
-                <button className="btn">Add Pet</button>
+                <Link to={`/manage/addpet/${currentUserId}`} className={addPetBtnStyles}>Add Pet</Link>
             </div>
         </div>
     );

@@ -67,3 +67,17 @@ export const changerUserInfo = (userInfo) => {
     })
         .catch(err => console.log(err))
 }
+
+export const addPet = (userId,petInfo) => {
+
+    const url = 'https://localhost:44384/pets/addpet/' + userId;
+
+    return fetch(url, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(petInfo)
+    }).catch(err => console.log(err));
+
+}

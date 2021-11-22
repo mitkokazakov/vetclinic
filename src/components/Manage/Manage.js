@@ -35,10 +35,11 @@ function Manage({history}) {
             </aside>
             <div className={style.containerManage}>
                 <Switch>
-                    <Route path="/manage/addPet" exact component={AddPet}></Route>
+                    {/* <Route path="/manage/addPet" exact component={AddPet}></Route> */}
                     <Route path="/manage/listAllPets" exact component={ListAllPets}></Route>
                     <Route path="/manage/listAllUsers" exact component={ListAllUsers}></Route>
                     <Route path="/manage/userprofile/:userId" exact component={SingleUser}></Route>
+                    <Route path="/manage/addPet/:userId" exact component={AddPet}></Route>
                 </Switch>
             </div>
         </div>

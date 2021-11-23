@@ -81,3 +81,21 @@ export const addPet = (userId,petInfo) => {
     }).catch(err => console.log(err));
 
 }
+
+export const getAllPets = () => {
+
+    const url = 'https://localhost:44384/pets/getallpets';
+
+    return fetch(url)
+        .then(result => result.json())
+        .catch(err => console.log(err));
+}
+
+export const getPetsByUser = (userId) => {
+
+    const url = 'https://localhost:44384/pets/getpetsbyuser/' + userId;
+
+    return fetch(url)
+        .then(result => result.json())
+        .catch(err => console.log(err));
+}

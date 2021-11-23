@@ -11,9 +11,11 @@ function SingleUser({ match }) {
 
     let currentUserId = match.params.userId;
     const [userToDisplay, setUserToDisplay] = useState('');
+    const [userPets, setUserPets] = useState([]);
 
     useEffect(() => {
         clinicServices.getUserById(currentUserId).then(data => setUserToDisplay(data));
+        clinicServices.getPetsByUser(currentUserId).then(data => setUserPets(data));
     }, [currentUserId]);
 
     return (
@@ -35,6 +37,12 @@ function SingleUser({ match }) {
 
             <div className={style.petsContainer}>
                 <h1>User's Pets</h1>
+
+                {
+                    userPets.map(p => {
+                        return <Link key={p.petId} to={`/manage/viewpet/${p.petId}`} >{p.name}</Link>
+                    })
+                }
 
                 <Link to={`/manage/addpet/${currentUserId}`} className={addPetBtnStyles}>Add Pet</Link>
             </div>

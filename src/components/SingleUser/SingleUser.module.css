@@ -14,3 +14,8 @@
     background-color: #C22083;
     color: white;
 }
+
+.petsContainer{
+    display: flex;
+    flex-direction: column;
+}

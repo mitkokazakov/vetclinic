@@ -1,0 +1,23 @@
+.petImage{
+    width: 500px;
+    height: 500px;
+    margin-right: 50px;
+    margin-left: 180px;
+}
+
+.petHr{
+    height: 4px;
+    width: 300px;
+    margin-left: 490px;
+    background-color: #C22083;
+    margin-bottom: 30px;
+}
+.petImage>img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.petInfo{
+    text-align: left;
+}

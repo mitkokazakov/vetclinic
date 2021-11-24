@@ -99,3 +99,12 @@ export const getPetsByUser = (userId) => {
         .then(result => result.json())
         .catch(err => console.log(err));
 }
+
+export const getPetById = (petId) => {
+
+    const url = 'https://localhost:44384/pets/getpetbyid/' + petId;
+
+    return fetch(url)
+        .then(result => result.json())
+        .catch(err => console.log(err));
+}

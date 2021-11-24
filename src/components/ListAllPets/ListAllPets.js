@@ -1,7 +1,18 @@
 import SinglePet from '../SinglePet/SinglePet';
 import style from './ListAllPets.module.css';
+import * as clinicServices from '../../services/clinicServices';
+
+import {useState,useEffect} from 'react';
 
 function ListAllPets() {
+
+    const [allPets,setAllPets] = useState([]);
+
+    useEffect(() => {
+
+        clinicServices.getAllPets().then(data => setAllPets(data));
+
+    },[allPets]);
 
     return (
         <div >
@@ -11,10 +22,16 @@ function ListAllPets() {
             </div>
 
             <div className="row d-flex justify-content-center">
+                {
+                    allPets.map(pet => {
+
+                        return <SinglePet key={pet.petId} petId={pet.petId} name={pet.name} kind={pet.kind} breed={pet.breed} />
+                    })
+                }
+                {/* <SinglePet name="Kitty" kind="Cat" breed="Sibirian" age="1" petId="123Dfal0-hjdas567y-uip0" />
                 <SinglePet name="Kitty" kind="Cat" breed="Sibirian" age="1" petId="123Dfal0-hjdas567y-uip0" />
                 <SinglePet name="Kitty" kind="Cat" breed="Sibirian" age="1" petId="123Dfal0-hjdas567y-uip0" />
-                <SinglePet name="Kitty" kind="Cat" breed="Sibirian" age="1" petId="123Dfal0-hjdas567y-uip0" />
-                <SinglePet name="Kitty" kind="Cat" breed="Sibirian" age="1" petId="123Dfal0-hjdas567y-uip0" />
+                <SinglePet name="Kitty" kind="Cat" breed="Sibirian" age="1" petId="123Dfal0-hjdas567y-uip0" /> */}
             </div>
         </div>
     );

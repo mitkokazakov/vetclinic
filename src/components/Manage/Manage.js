@@ -9,6 +9,7 @@ import ListAllPets from '../ListAllPets/ListAllPets';
 import ListAllUsers from '../ListAllUsers/ListAllUsers';
 import UserContext from '../UserContext/UserContext';
 import SingleUser from '../SingleUser/SingleUser';
+import ViewPet from '../ViewPet/ViewPet';
 
 function Manage({history}) {
 
@@ -40,6 +41,7 @@ function Manage({history}) {
                     <Route path="/manage/listAllUsers" exact component={ListAllUsers}></Route>
                     <Route path="/manage/userprofile/:userId" exact component={SingleUser}></Route>
                     <Route path="/manage/addPet/:userId" exact component={AddPet}></Route>
+                    <Route path="/manage/viewPet/:petId" exact component={ViewPet}></Route>
                 </Switch>
             </div>
         </div>

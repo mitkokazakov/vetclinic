@@ -1,6 +1,17 @@
 import style from './AddPet.module.css';
 
+import {useForm} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
 import * as clinicServices from '../../services/clinicServices';
+
+const scheme = yup.object().shape({
+
+    name: yup.string().min(2,"Pet name must be at least 2 characters").max(30,"Pet name must be max 30 characters long").required("The field is required"),
+    kind: yup.string().min(2,"Kind must be at least 2 characters").required("The field is required"),
+    breed: yup.string().min(2,"Breed must be at least 2 characters").max(30,"Breed must be max 30 characters long").required("The field is required")
+})
 
 function AddPet({match, history}) {
 
@@ -9,7 +20,7 @@ function AddPet({match, history}) {
 
     let userId = match.params.userId;
 
-    function onSubmitAddPetHandler(e){
+    function onSubmitAddPetHandler(data,e){
 
         e.preventDefault();
         
@@ -27,7 +38,7 @@ function AddPet({match, history}) {
 
     return (
         <div className="row">
-            <form className="col-md-6 col-sm-4 offset-md-3" method="post"  onSubmit={onSubmitAddPetHandler}>
+            <form className="col-md-6 col-sm-4 offset-md-3" method="post"  onSubmit={handleSubmit(onSubmitAddPetHandler)}>
 
                 <div className={style.addPetHeader}>
                     <h1 >Add Pet</h1>
@@ -36,16 +47,16 @@ function AddPet({match, history}) {
 
                 <div className="form-group mb-3">
                     <label htmlFor="name">Name</label>
-                    <input type="text" className={addPetInputStyles} id="name" name="name" placeholder="Name..." />
+                    <input type="text" className={addPetInputStyles} id="name" name="name" placeholder="Name..." {...register("name")} />
 
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="kind">Kind</label>
-                    <input type="text" className={addPetInputStyles} id="kind" name="kind" placeholder="Kind..." />
+                    <input type="text" className={addPetInputStyles} id="kind" name="kind" placeholder="Kind..." {...register("kind")} />
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="breed">Breed</label>
-                    <input type="text" className={addPetInputStyles} id="breed" name="breed" placeholder="Breed..." />
+                    <input type="text" className={addPetInputStyles} id="breed" name="breed" placeholder="Breed..." {...register("breed")} />
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="dateOfBirth">Date Of Birth</label>

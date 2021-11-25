@@ -1,15 +1,19 @@
 import style from './ViewPet.module.css';
 import Image from '../../images/8.jpg';
+import UserContext from '../UserContext/UserContext';
 
-import {useState, useEffect} from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import * as clinicServices from '../../services/clinicServices';
 
 function ViewPet({ match }) {
 
+    const { currentUser } = useContext(UserContext);
+
     let currentPetId = match.params.petId;
 
-    const [pet, setPet] = useState({name: '', kind: '', breed: ''});
+    const [pet, setPet] = useState({ name: '', kind: '', breed: '' });
 
     useEffect(() => {
 
@@ -31,22 +35,18 @@ function ViewPet({ match }) {
                     <h5 className="mb-3">Breed: {pet.breed}</h5>
                     <h6 className="mb-3">Age: </h6>
 
-                    <p>
-                        <a className="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle</a>
-
-                    </p>
-                    <div className="row">
-                        <div className="col">
-                            <div className="collapse multi-collapse" id="multiCollapseExample1">
-                                <div className="card card-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <Link className={`btn ${style.petBtn}`}>Edit</Link>
                 </div>
+
+
             </div>
 
+            <div className="col-md-6 offset-md-3">
+                <h1>Visitations</h1>
+                {
+                    currentUser.role == "Admin" ? <Link className={`btn ${style.petBtn}`}>Add Visitation</Link> : null
+                }
+            </div>
         </div>
     );
 }

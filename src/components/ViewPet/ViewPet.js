@@ -13,7 +13,7 @@ function ViewPet({ match }) {
 
     let currentPetId = match.params.petId;
 
-    const [pet, setPet] = useState({ name: '', kind: '', breed: '' });
+    const [pet, setPet] = useState({ name: '', kind: '', breed: ''});
 
     useEffect(() => {
 
@@ -26,7 +26,7 @@ function ViewPet({ match }) {
             <div className={style.petHr}></div>
             <div className="d-flex justify-content-start">
                 <div className={style.petImage}>
-                    <img src={Image}></img>
+                    <img src={`https://localhost:44384/pets/getimage/${currentPetId}`}></img>
                 </div>
 
                 <div className={style.petInfo}>

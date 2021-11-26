@@ -86,6 +86,13 @@ export const addPet = (userId,petInfo) => {
 
 }
 
+export const changePet = (petId, petInfo) => {
+
+    const url = 'https://localhost:44384/pets/changepet/' + petId;
+
+    return  axios.put(url,petInfo).catch(err => console.log(err));
+}
+
 export const getAllPets = () => {
 
     const url = 'https://localhost:44384/pets/getallpets';

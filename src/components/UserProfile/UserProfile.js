@@ -1,23 +1,35 @@
 import style from './UserProfile.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import * as clinicServices from '../../services/clinicServices';
+
+import { Link } from 'react-router-dom';
 
 import UserContext from '../UserContext/UserContext';
 
-function UserProfile({history}) {
+function UserProfile({ history }) {
 
-     const {currentUser} = useContext(UserContext);
+    const { currentUser } = useContext(UserContext);
+
+    let currentUserId = currentUser.userId;
+
+    const [currentUserPets, setUserPets] = useState([]);
 
     let changeUserProfileButtonStyles = style.changeUserProfileButton + ' btn';
 
-    function onClickChangeButtonHandler(){
+    useEffect(() => {
+
+        clinicServices.getPetsByUser(currentUserId).then(data => setUserPets(data));
+
+    }, [currentUserId]);
+
+    function onClickChangeButtonHandler() {
         history.push("/changeprofile");
     }
 
 
     return (
-        
+
         <div className={style.userContainer}>
             <div className={style.userHeader}>
 
@@ -54,7 +66,7 @@ function UserProfile({history}) {
                             </div>
                             {
                                 currentUser.role == "User" ? <div className="col-md-12 mb-4">
-                                <button onClick={onClickChangeButtonHandler} className={changeUserProfileButtonStyles}>Change</button>
+                                    <button onClick={onClickChangeButtonHandler} className={changeUserProfileButtonStyles}>Change</button>
                                 </div> : null
                             }
                         </div>
@@ -62,7 +74,35 @@ function UserProfile({history}) {
 
                         <h3 className={style.userMainInfoPetsH3}>PETS</h3>
                         <div className={style.userInfoHr}></div>
+                        <div clasName="row">
+                            <table className="table table-striped table-hover col-md-8">
+                                <thead>
+                                    <tr>
+                                        <th>Pet</th>
+                                        <th>View</th>
+                                        <th>Edit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        currentUserPets.map(pet => {
 
+                                            return <tr>
+                                                <td>
+                                                    {pet.name}
+                                                </td>
+                                                <td>
+                                                    <Link to={`/viewPet/${pet.petId}`} className="btn btn-primary">View</Link>
+                                                </td>
+                                                <td>
+                                                    <Link to={`/changePet/${pet.petId}`} className="btn btn-warning">Edit</Link>
+                                                </td>
+                                            </tr>
+                                        })
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

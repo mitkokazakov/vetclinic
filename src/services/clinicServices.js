@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const loginUser = (user) => {
 
     const url = 'https://localhost:44384/auth/login';
@@ -72,13 +74,15 @@ export const addPet = (userId,petInfo) => {
 
     const url = 'https://localhost:44384/pets/addpet/' + userId;
 
-    return fetch(url, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(petInfo)
-    }).catch(err => console.log(err));
+    // return fetch(url, {
+    //     method: "POST",
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(petInfo)
+    // }).catch(err => console.log(err));
+
+    return  axios.post(url,petInfo).catch(err => console.log(err));
 
 }
 

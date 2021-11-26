@@ -16,7 +16,7 @@ function SingleUser({ match }) {
     useEffect(() => {
         clinicServices.getUserById(currentUserId).then(data => setUserToDisplay(data));
         clinicServices.getPetsByUser(currentUserId).then(data => setUserPets(data));
-    }, [currentUserId]);
+    }, [currentUserId,userPets]);
 
     return (
         <div className={style.userContainer}>

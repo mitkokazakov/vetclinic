@@ -10,6 +10,8 @@ import Register from './components/Register/Register';
 import Logout from './components/Logout/Logout';
 import UserProfile from './components/UserProfile/UserProfile';
 import ChangeUserProfile from './components/ChangeUserProfile/ChangeUserProfile';
+import ViewPet from './components/ViewPet/ViewPet';
+import ChangePet from './components/ChangePet/ChangePet';
 
 import { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
@@ -71,6 +73,8 @@ function App() {
           <Route path="/logout" component={Logout}></Route>
           <Route path="/myprofile" exact component={UserProfile}></Route>
           <Route path="/changeprofile" component={ChangeUserProfile}></Route>
+          <Route path="/viewPet/:petId" component={ViewPet}></Route>
+          <Route path="/changePet/:petId" component={ChangePet}></Route>
         </Switch>
         <Footer />
 

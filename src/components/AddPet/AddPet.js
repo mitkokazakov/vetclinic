@@ -15,6 +15,10 @@ const scheme = yup.object().shape({
 
 function AddPet({match, history}) {
 
+    const {register,handleSubmit,formState: {errors}} = useForm({
+        resolver: yupResolver(scheme)
+    });
+
     let addPetInputStyles = style.addPetInput + ' form-control mt-2';
     let addPetButtonStyles = style.addPetButton + ' btn';
 
@@ -24,21 +28,30 @@ function AddPet({match, history}) {
 
         e.preventDefault();
         
-        let currentPet = {
-            name: e.target.name.value,
-            kind: e.target.kind.value,
-            breed: e.target.breed.value,
-            birthDate: e.target.dateOfBirth.value
-        }
+        let form = new FormData();
+        form.append('name',e.target.name.value);
+        form.append('kind',e.target.kind.value);
+        form.append('breed',e.target.breed.value);
+        form.append('birthDate',e.target.birthDate.value);
+        form.append('image',e.target.image.files[0]);
 
-        clinicServices.addPet(userId,currentPet);
+        // let currentPet = {
+        //     name: e.target.name.value,
+        //     kind: e.target.kind.value,
+        //     breed: e.target.breed.value,
+        //     birthDate: e.target.birthDate.value,
+        //     image: e.target.image.files[0]
+        // }
+
+    
+        clinicServices.addPet(userId,form);
 
         history.push(`/manage/userprofile/${userId}`);
     }
 
     return (
         <div className="row">
-            <form className="col-md-6 col-sm-4 offset-md-3" method="post"  onSubmit={handleSubmit(onSubmitAddPetHandler)}>
+            <form className="col-md-6 col-sm-4 offset-md-3" method="post" encType="multipart/form-data"  onSubmit={handleSubmit(onSubmitAddPetHandler)}>
 
                 <div className={style.addPetHeader}>
                     <h1 >Add Pet</h1>
@@ -59,8 +72,8 @@ function AddPet({match, history}) {
                     <input type="text" className={addPetInputStyles} id="breed" name="breed" placeholder="Breed..." {...register("breed")} />
                 </div>
                 <div className="form-group mb-3">
-                    <label htmlFor="dateOfBirth">Date Of Birth</label>
-                    <input type="date" className={addPetInputStyles} id="dateOfBirth" name="dateOfBirth" />
+                    <label htmlFor="birthDate">Date Of Birth</label>
+                    <input type="date" className={addPetInputStyles} id="birthDate" name="birthDate" />
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="image">Image</label>

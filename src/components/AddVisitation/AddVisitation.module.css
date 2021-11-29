@@ -1,0 +1,19 @@
+.addVisitationHeader>div{
+    min-height: 4px;
+    background-color: black;
+}
+
+.addVisitationHeader>h1{
+    color: #C22083;
+}
+
+
+.addVisitationInput{
+    border: 1px solid #C22083;
+}
+
+.addVisitationButton{
+    background-color: #C22083;
+    color: white;
+    font-weight: bold;
+}

@@ -26,7 +26,7 @@ function ChangePet({match,history}) {
     let changePetInputStyles = style.changePetInput + ' form-control mt-2';
     let changePetButtonStyles = style.changePetButton + ' btn';
 
-    const [currentPet, setCurrentPet] = useState({name: null, kind: null, breed: null, petId: null});
+    const [currentPet, setCurrentPet] = useState({name: '', kind: '', breed: '', petId: ''});
 
     useEffect(() => {
 
@@ -59,17 +59,17 @@ function ChangePet({match,history}) {
 
                 <div className="form-group mb-3">
                     <label htmlFor="name">Name</label>
-                    <input type="text" className={changePetInputStyles} id="name" name="name" {...register("name")} value={currentPet.name} />
+                    <input type="text" className={changePetInputStyles} id="name" name="name" {...register("name")} defaultValue={currentPet.name} />
                     <span>{errors.name?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="kind">Kind</label>
-                    <input type="text" className={changePetInputStyles} id="kind" name="kind" {...register("kind")} value={currentPet.kind} />
+                    <input type="text" className={changePetInputStyles} id="kind" name="kind" {...register("kind")} defaultValue={currentPet.kind} />
                     <span>{errors.kind?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="breed">Breed</label>
-                    <input type="text" className={changePetInputStyles} id="breed" name="breed" {...register("breed")} value={currentPet.breed} />
+                    <input type="text" className={changePetInputStyles} id="breed" name="breed" {...register("breed")} defaultValue={currentPet.breed} />
                     <span>{errors.breed?.message}</span>
                 </div>
                 <div className="form-group mb-3">

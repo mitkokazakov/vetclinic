@@ -1,5 +1,5 @@
 import style from './ViewPet.module.css';
-import Image from '../../images/8.jpg';
+import Image from '../../images/unknown.jpg';
 import UserContext from '../UserContext/UserContext';
 
 import { useState, useEffect, useContext } from 'react';
@@ -13,20 +13,31 @@ function ViewPet({ match }) {
 
     let currentPetId = match.params.petId;
 
-    const [pet, setPet] = useState({ name: '', kind: '', breed: ''});
+    const [pet, setPet] = useState({ name: '', kind: '', breed: '', imageId: null});
 
     useEffect(() => {
 
         clinicServices.getPetById(currentPetId).then(data => setPet(data));
 
     }, [pet]);
+
+    let imageUrl = null;
+
+    if(pet.imageId == null){
+        imageUrl = Image;
+    }
+    else{
+        imageUrl = `https://localhost:44384/pets/getimage/${currentPetId}`;
+    }
+
+
     return (
         <div className="row">
             <h1 className="font-weight-bold">Pet Info</h1>
             <div className={style.petHr}></div>
             <div className="d-flex justify-content-start">
                 <div className={style.petImage}>
-                    <img src={`https://localhost:44384/pets/getimage/${currentPetId}`}></img>
+                    <img src={imageUrl} alt="No image"></img>
                 </div>
 
                 <div className={style.petInfo}>
@@ -35,7 +46,7 @@ function ViewPet({ match }) {
                     <h5 className="mb-3">Breed: {pet.breed}</h5>
                     <h6 className="mb-3">Age: </h6>
 
-                    <Link className={`btn ${style.petBtn}`}>Edit</Link>
+                    <Link to={`/changePet/${currentPetId}`} className={`btn ${style.petBtn}`}>Edit</Link>
                 </div>
 
 
@@ -44,7 +55,7 @@ function ViewPet({ match }) {
             <div className="col-md-6 offset-md-3">
                 <h1>Visitations</h1>
                 {
-                    currentUser.role == "Admin" ? <Link className={`btn ${style.petBtn}`}>Add Visitation</Link> : null
+                    currentUser.role == "Admin" ? <Link to={`/manage/addVisitation/${currentPetId}`} className={`btn ${style.petBtn}`}>Add Visitation</Link> : null
                 }
             </div>
         </div>

@@ -119,3 +119,17 @@ export const getPetById = (petId) => {
         .then(result => result.json())
         .catch(err => console.log(err));
 }
+
+export const addVisitation = (petId, visitation) => {
+
+    const url = 'https://localhost:44384/pets/addvisitation/' + petId;
+
+    return fetch(url,{
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(visitation)
+    })
+        .catch(err => console.log(err))
+}

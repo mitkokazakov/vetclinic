@@ -133,3 +133,12 @@ export const addVisitation = (petId, visitation) => {
     })
         .catch(err => console.log(err))
 }
+
+export const getVisitations = (petId) => {
+
+    const url = 'https://localhost:44384/pets/getvisitations/' + petId;
+
+    return fetch(url)
+        .then(result => result.json())
+        .catch(err => console.log(err));
+}

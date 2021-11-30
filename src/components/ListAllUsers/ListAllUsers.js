@@ -27,9 +27,9 @@ function ListAllUsers() {
 
                 {
                     allUsers.map(user => {
-                        return <tr>
+                        return <tr key={user.userId}>
                         <td><Link key={user.userId} to={`/manage/userprofile/${user.userId}`}>{user.firstName + ' ' + user.lastName}</Link></td>
-                        <td>{user.town == null ? ' ' : user.town + ', ' + user.address == null ? ' ' : user.address}</td>
+                        <td key={user.userId}>{user.town == null ? ' ' : user.town + ', ' + user.address == null ? ' ' : user.address}</td>
                     </tr>
                     })
                 }

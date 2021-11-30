@@ -8,11 +8,8 @@ function SinglePet({name,breed,kind,age,petId}) {
     let petNameStyles = 'card-title ' + style.petName;
     let petBtnStyles = 'btn ' + style.petBtn;
 
-    let currentPetId = petId;
+    //let currentPetId = petId;
 
-    function onClickViewBtn () {
-
-    }
 
     return (
 

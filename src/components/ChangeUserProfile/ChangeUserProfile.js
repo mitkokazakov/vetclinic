@@ -64,32 +64,32 @@ function ChangeUserProfile({history}) {
 
                 <div className="form-group mb-3">
                     <label htmlFor="firstName">First name</label>
-                    <input type="text" className={changeProfileInputStyles} id="firstName" name="firstName" value={currentUser.firstName} {...register("firstName")} />
+                    <input type="text" className={changeProfileInputStyles} id="firstName" name="firstName" defaultValue={currentUser.firstName} {...register("firstName")} />
                     <span>{errors.firstName?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="lastName">Last Name</label>
-                    <input type="text" className={changeProfileInputStyles} id="lastName" name="lastName" value={currentUser.lastName} {...register("lastName")} />
+                    <input type="text" className={changeProfileInputStyles} id="lastName" name="lastName" defaultValue={currentUser.lastName} {...register("lastName")} />
                     <span>{errors.lastName?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="email">Email</label>
-                    <input type="text" className={changeProfileInputStyles} id="email" name="email" value={currentUser.email} {...register("email")} />
+                    <input type="text" className={changeProfileInputStyles} id="email" name="email" defaultValue={currentUser.email} {...register("email")} />
                     <span>{errors.email?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="town">Town</label>
-                    <input type="text" className={changeProfileInputStyles} id="town" name="town" {...register("town")} value={currentUser.town} />
+                    <input type="text" className={changeProfileInputStyles} id="town" name="town" {...register("town")} defaultValue={currentUser.town} />
                     <span>{errors.town?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="address">Address</label>
-                    <input type="text" className={changeProfileInputStyles} id="address" name="address" {...register("address")} value={currentUser.address} />
+                    <input type="text" className={changeProfileInputStyles} id="address" name="address" {...register("address")} defaultValue={currentUser.address} />
                     <span>{errors.address?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="phone">Phone</label>
-                    <input type="text" className={changeProfileInputStyles} id="phone" name="phone" {...register("phone")} value={currentUser.phone} />
+                    <input type="text" className={changeProfileInputStyles} id="phone" name="phone" {...register("phone")} defaultValue={currentUser.phone} />
                     <span>{errors.phone?.message}</span>
                 </div>
 

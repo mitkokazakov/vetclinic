@@ -74,7 +74,7 @@ function UserProfile({ history }) {
 
                         <h3 className={style.userMainInfoPetsH3}>PETS</h3>
                         <div className={style.userInfoHr}></div>
-                        <div clasName="row">
+                        <div className="row">
                             <table className="table table-striped table-hover col-md-8">
                                 <thead>
                                     <tr>
@@ -87,7 +87,7 @@ function UserProfile({ history }) {
                                     {
                                         currentUserPets.map(pet => {
 
-                                            return <tr>
+                                            return <tr key={pet.petId}>
                                                 <td>
                                                     {pet.name}
                                                 </td>

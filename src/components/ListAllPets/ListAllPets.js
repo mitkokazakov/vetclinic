@@ -28,10 +28,7 @@ function ListAllPets() {
                         return <SinglePet key={pet.petId} petId={pet.petId} name={pet.name} kind={pet.kind} breed={pet.breed} />
                     })
                 }
-                {/* <SinglePet name="Kitty" kind="Cat" breed="Sibirian" age="1" petId="123Dfal0-hjdas567y-uip0" />
-                <SinglePet name="Kitty" kind="Cat" breed="Sibirian" age="1" petId="123Dfal0-hjdas567y-uip0" />
-                <SinglePet name="Kitty" kind="Cat" breed="Sibirian" age="1" petId="123Dfal0-hjdas567y-uip0" />
-                <SinglePet name="Kitty" kind="Cat" breed="Sibirian" age="1" petId="123Dfal0-hjdas567y-uip0" /> */}
+                
             </div>
         </div>
     );

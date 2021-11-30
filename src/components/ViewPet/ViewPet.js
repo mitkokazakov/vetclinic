@@ -1,6 +1,7 @@
 import style from './ViewPet.module.css';
 import Image from '../../images/unknown.jpg';
 import UserContext from '../UserContext/UserContext';
+import Visitation from '../Visitation/Visitation';
 
 import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -13,22 +14,31 @@ function ViewPet({ match }) {
 
     let currentPetId = match.params.petId;
 
-    const [pet, setPet] = useState({ name: '', kind: '', breed: '', imageId: null});
+    const [pet, setPet] = useState({ name: '', kind: '', breed: '', imageId: null });
+    const [visitations, setVisitations] = useState([]);
+    const [petImage, setPetImage] = useState('');
+
+    
 
     useEffect(() => {
 
         clinicServices.getPetById(currentPetId).then(data => setPet(data));
+        clinicServices.getVisitations(currentPetId).then(data => setVisitations(data));
+
+        let imageUrl = null;
+
+        if (pet.imageId == null) {
+            imageUrl = Image;
+        }
+        else {
+            imageUrl = `https://localhost:44384/pets/getimage/${currentPetId}`;
+        }
+
+        setPetImage(imageUrl);
 
     }, [pet]);
 
-    let imageUrl = null;
 
-    if(pet.imageId == null){
-        imageUrl = Image;
-    }
-    else{
-        imageUrl = `https://localhost:44384/pets/getimage/${currentPetId}`;
-    }
 
 
     return (
@@ -37,7 +47,7 @@ function ViewPet({ match }) {
             <div className={style.petHr}></div>
             <div className="d-flex justify-content-start">
                 <div className={style.petImage}>
-                    <img src={imageUrl} alt="No image"></img>
+                    <img src={petImage} alt="No image"></img>
                 </div>
 
                 <div className={style.petInfo}>
@@ -54,6 +64,11 @@ function ViewPet({ match }) {
 
             <div className="col-md-6 offset-md-3">
                 <h1>Visitations</h1>
+                {
+                    visitations.map(v => {
+                        return <Visitation key={v.id} date={v.date} reason={v.reason} description={v.description} />
+                    })
+                }
                 {
                     currentUser.role == "Admin" ? <Link to={`/manage/addVisitation/${currentPetId}`} className={`btn ${style.petBtn}`}>Add Visitation</Link> : null
                 }

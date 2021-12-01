@@ -17,6 +17,7 @@
 .petBtn{
     background-color: #C22083;
     color: white;
+    margin-top: 10px;
 }
 
 .petBtn:hover{

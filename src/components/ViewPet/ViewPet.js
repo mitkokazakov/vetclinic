@@ -18,7 +18,7 @@ function ViewPet({ match }) {
     const [visitations, setVisitations] = useState([]);
     const [petImage, setPetImage] = useState('');
 
-    
+
 
     useEffect(() => {
 
@@ -43,8 +43,10 @@ function ViewPet({ match }) {
 
     return (
         <div className="row">
-            <h1 className="font-weight-bold">Pet Info</h1>
-            <div className={style.petHr}></div>
+            <div className={style.headerContainer}>
+                <h1 className={style.petHeader}>Pet Info</h1>
+            </div>
+
             <div className="d-flex justify-content-start">
                 <div className={style.petImage}>
                     <img src={petImage} alt="No image"></img>

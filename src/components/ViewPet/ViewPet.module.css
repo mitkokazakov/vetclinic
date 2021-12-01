@@ -32,3 +32,23 @@
     color:#C22083;
     border-color: #C22083;
 }
+
+.petHeader{
+    font-weight: bold;
+}
+
+.petHeader::after{
+    content: "";
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 150px;
+    background-color:#C22083 ;
+    
+}
+
+.headerContainer{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}

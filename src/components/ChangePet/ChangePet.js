@@ -34,6 +34,8 @@ function ChangePet({match,history}) {
 
     }, [currentPetId]);
 
+    
+
     function onSubmitChangePetHandler(date,e){
         e.preventDefault();
 
@@ -59,7 +61,7 @@ function ChangePet({match,history}) {
 
                 <div className="form-group mb-3">
                     <label htmlFor="name">Name</label>
-                    <input type="text" className={changePetInputStyles} id="name" name="name" {...register("name")} defaultValue={currentPet.name} />
+                    <input type="text" className={changePetInputStyles} id="name" name="name" {...register("name")} defaultValue={currentPet.name}  />
                     <span>{errors.name?.message}</span>
                 </div>
                 <div className="form-group mb-3">

@@ -86,6 +86,15 @@ export const addPet = (userId,petInfo) => {
 
 }
 
+export const deletePet = (petId) => {
+
+    const url = 'https://localhost:44384/pets/deletepet/' + petId;
+
+    return fetch(url,{
+        method: "DELETE"
+    }).catch(err => console.log(err));
+}
+
 export const changePet = (petId, petInfo) => {
 
     const url = 'https://localhost:44384/pets/changepet/' + petId;

@@ -30,7 +30,15 @@ function ChangePet({match,history}) {
 
     useEffect(() => {
 
-        clinicServices.getPetById(currentPetId).then(data => setCurrentPet(data));
+        let isUnmount = false;
+
+        if(!isUnmount){
+            clinicServices.getPetById(currentPetId).then(data => setCurrentPet(data));
+        }
+        
+        return () => {
+            isUnmount = true;
+        }
 
     }, [currentPetId]);
 
@@ -40,9 +48,9 @@ function ChangePet({match,history}) {
         e.preventDefault();
 
         let form = new FormData();
-        form.append('name',e.target.name.value);
-        form.append('kind',e.target.kind.value);
-        form.append('breed',e.target.breed.value);
+        form.append('name',currentPet.name);
+        form.append('kind',currentPet.kind);
+        form.append('breed',currentPet.breed);
         form.append('image',e.target.image.files[0]);
 
         clinicServices.changePet(currentPetId,form);
@@ -61,17 +69,17 @@ function ChangePet({match,history}) {
 
                 <div className="form-group mb-3">
                     <label htmlFor="name">Name</label>
-                    <input type="text" className={changePetInputStyles} id="name" name="name" {...register("name")} defaultValue={currentPet.name}  />
+                    <input type="text" className={changePetInputStyles} id="name" name="name" {...register("name")} value={currentPet.name} onChange={(e) => setCurrentPet(oldState => ({...oldState, name: e.target.value}))} />
                     <span>{errors.name?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="kind">Kind</label>
-                    <input type="text" className={changePetInputStyles} id="kind" name="kind" {...register("kind")} defaultValue={currentPet.kind} />
+                    <input type="text" className={changePetInputStyles} id="kind" name="kind" {...register("kind")} value={currentPet.kind} onChange={(e) => setCurrentPet(oldState => ({...oldState, kind: e.target.value}))} />
                     <span>{errors.kind?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="breed">Breed</label>
-                    <input type="text" className={changePetInputStyles} id="breed" name="breed" {...register("breed")} defaultValue={currentPet.breed} />
+                    <input type="text" className={changePetInputStyles} id="breed" name="breed" {...register("breed")} value={currentPet.breed}  onChange={(e) => setCurrentPet(oldState => ({...oldState, breed: e.target.value}))} />
                     <span>{errors.breed?.message}</span>
                 </div>
                 <div className="form-group mb-3">

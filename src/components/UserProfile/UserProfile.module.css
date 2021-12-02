@@ -1,17 +1,24 @@
-.userHeader{
-    margin-top: 20px;
+
+.informationHeader{
+    font-weight: bold;
 }
 
-.userMainInfoHeader{
-    margin-top: 80px;
+.informationHeader::after{
+    content: "";
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background-color:#C22083 ;
 }
 
-.userMainInfoHeaderH3{
-    margin-right: 570px;
-}
-
-.userMainInfoPetsH3{
-    margin-right: 590px;
+.userMainInfoHeaderH3::after{
+    content: "";
+    display: block;
+    position: absolute;
+    height: 5px;
+    width: 200px;
+    background-color:#C22083 ;
 }
 
 .userHr{

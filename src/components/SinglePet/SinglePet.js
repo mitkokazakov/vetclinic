@@ -6,7 +6,7 @@ import * as clinicServices from '../../services/clinicServices';
 
 function SinglePet({ name, breed, kind, age, petId, history }) {
 
-    let cardStyles = 'card col-md-2 me-5 p-4 ' + style.petCard;
+    let cardStyles = 'card col-md-3 me-5 p-4 ' + style.petCard;
     let petNameStyles = 'card-title ' + style.petName;
     let petBtnStyles = 'btn ' + style.petBtn;
 

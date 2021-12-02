@@ -15,7 +15,7 @@ function ListAllPets() {
     },[allPets]);
 
     return (
-        <div >
+        <div className="col-md-10 offset-md-1">
             <div className={style.petsHeading}>
                 <h1>All Pets</h1>
                 <div className={style.petsHr}></div>

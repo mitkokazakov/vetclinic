@@ -64,7 +64,7 @@ function ViewPet({ match }) {
 
             </div>
 
-            <div className="col-md-6 offset-md-3">
+            <div className="col-md-6 offset-md-3 mt-4">
                 <h1>Visitations</h1>
                 {
                     visitations.map(v => {

@@ -27,3 +27,13 @@
     color: #C22083;
     cursor: pointer;
 }
+
+@media all and (max-width: 600px){
+
+    .header{
+        flex-direction: column;
+    }
+    .ul{
+        flex-direction: column;
+    }
+}

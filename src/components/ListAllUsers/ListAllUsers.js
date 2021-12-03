@@ -15,9 +15,9 @@ function ListAllUsers() {
     }, [allUsers])
 
     return (
-        <div className="col-md-10 offset-md-1">
+        <div className="col-md-10 offset-md-1 col-12">
             <h1>List All Users</h1>
-            <table className="table table-striped table-hover table-responsive col-md-6">
+            <table className="table table-striped table-hover table-responsive col-md-6 col-xs-12">
                 <thead className="thead-dark">
                     <tr>
                         <th>Owner's Name</th>

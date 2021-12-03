@@ -40,3 +40,11 @@
     font-weight: bold;
     width: 250px;
 }
+
+@media all and (max-width: 600px){
+
+    .contactAddress{
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

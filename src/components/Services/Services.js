@@ -8,7 +8,6 @@ function Services() {
         <div className={style.servicesContainer} id="services">
             <div className={style.servicesHeading}>
                 <h1>Our Services</h1>
-                <hr></hr>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa
                     semper aliquam quis mattis quam.</p>
             </div>

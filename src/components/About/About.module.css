@@ -49,6 +49,17 @@
 
 @media all and (max-width: 600px){
 
+    
+
+    .aboutHeading{
+        justify-content: center;
+    }
+
+    .aboutHeading>p{
+        text-align: center;
+        margin-left: 0;
+    }
+
     .aboutContent{
         display: flex;
         flex-direction: column;
@@ -57,6 +68,8 @@
     .aboutImage{
         min-height: 400px;
         max-width: 400px;
+        margin-bottom: 20px;
+        margin-right: 50px;
     }
 
     .aboutText{

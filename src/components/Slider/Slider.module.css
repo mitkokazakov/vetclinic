@@ -3,8 +3,8 @@
     min-height: 550px;
     display: flex;
     background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: cover;
+    background-position: 50% 0;
+    background-size: cover;
     
 }
 
@@ -25,4 +25,11 @@
 
 .pinkText{
     color:#C22083;
+}
+
+@media all and (max-width: 600px){
+
+    .mainSlider{
+        min-width: 400px;
+    }
 }

@@ -111,6 +111,15 @@ export const getAllPets = () => {
         .catch(err => console.log(err));
 }
 
+export const findPetsByName = (petName) => {
+
+    const url = 'https://localhost:44384/pets/findpetsbyname/' + petName;
+
+    return fetch(url)
+        .then(result => result.json())
+        .catch(err => console.log(err));
+}
+
 export const getPetsByUser = (userId) => {
 
     const url = 'https://localhost:44384/pets/getpetsbyuser/' + userId;

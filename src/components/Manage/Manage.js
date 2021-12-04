@@ -11,6 +11,7 @@ import UserContext from '../UserContext/UserContext';
 import SingleUser from '../SingleUser/SingleUser';
 import ViewPet from '../ViewPet/ViewPet';
 import AddVisitation from '../AddVisitation/AddVisitation';
+import FindPet from '../FindPet/FindPet';
 
 function Manage({history}) {
 
@@ -29,8 +30,8 @@ function Manage({history}) {
                 <ul className={style.ulManage}>
                     <li><Link to="/manage/listAllPets">List All Pets</Link></li>
                     <li><Link to="/manage/listAllUsers">List All Users</Link></li>
-                    <li><Link to="/manage/findPet">Find Pet By Name</Link></li>
-                    <li><Link to="/manage/findUser">Find User by Name</Link></li>
+                    <li><Link to="/manage/findPet">Find Pet</Link></li>
+                    <li><Link to="/manage/findUser">Find User</Link></li>
                 </ul>
 
             </aside>
@@ -43,6 +44,7 @@ function Manage({history}) {
                     <Route path="/manage/addPet/:userId" exact component={AddPet}></Route>
                     <Route path="/manage/viewPet/:petId" exact component={ViewPet}></Route>
                     <Route path="/manage/addVisitation/:petId" exact component={AddVisitation}></Route>
+                    <Route path="/manage/findPet" exact component={FindPet}></Route>
                 </Switch>
             </div>
         </div>

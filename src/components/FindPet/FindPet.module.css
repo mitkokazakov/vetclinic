@@ -1,0 +1,23 @@
+.findPetHeader>div{
+    min-height: 4px;
+    background-color: black;
+}
+
+.findPetHeader>h1{
+    color: #C22083;
+}
+
+
+.findPetInput{
+    border: 1px solid #C22083;
+}
+
+.findPetButton{
+    background-color: #C22083;
+    color: white;
+    font-weight: bold;
+}
+
+.petsHeading>h1{
+    color: #C22083;
+}

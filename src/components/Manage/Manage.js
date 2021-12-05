@@ -12,6 +12,7 @@ import SingleUser from '../SingleUser/SingleUser';
 import ViewPet from '../ViewPet/ViewPet';
 import AddVisitation from '../AddVisitation/AddVisitation';
 import FindPet from '../FindPet/FindPet';
+import FindUser from '../FindUser/FindUser';
 
 function Manage({history}) {
 
@@ -45,6 +46,7 @@ function Manage({history}) {
                     <Route path="/manage/viewPet/:petId" exact component={ViewPet}></Route>
                     <Route path="/manage/addVisitation/:petId" exact component={AddVisitation}></Route>
                     <Route path="/manage/findPet" exact component={FindPet}></Route>
+                    <Route path="/manage/findUser" exact component={FindUser}></Route>
                 </Switch>
             </div>
         </div>

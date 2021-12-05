@@ -1,0 +1,19 @@
+.findUserHeader>div{
+    min-height: 4px;
+    background-color: black;
+}
+
+.findUserHeader>h1{
+    color: #C22083;
+}
+
+
+.findUserInput{
+    border: 1px solid #C22083;
+}
+
+.findUserButton{
+    background-color: #C22083;
+    color: white;
+    font-weight: bold;
+}

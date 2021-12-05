@@ -47,6 +47,15 @@ export const getAllUsers = () => {
         .catch(err => console.log(err));
 }
 
+export const findUsersByName = (userName) => {
+
+    const url = 'https://localhost:44384/auth/findusersbyname/' + userName;
+
+    return fetch(url)
+        .then(result => result.json())
+        .catch(err => console.log(err));
+}
+
 export const getUserById = (userId) => {
 
     const url = 'https://localhost:44384/auth/getuserbyid/' + userId;

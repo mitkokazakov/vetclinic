@@ -2,17 +2,30 @@ import SinglePet from '../SinglePet/SinglePet';
 import style from './ListAllPets.module.css';
 import * as clinicServices from '../../services/clinicServices';
 
+import Fallback from '../Fallback/Fallback';
+
 import {useState,useEffect} from 'react';
 
 function ListAllPets() {
 
     const [allPets,setAllPets] = useState([]);
 
+    const [status,setStatus] = useState(200);
+
     useEffect(() => {
 
-        clinicServices.getAllPets().then(data => setAllPets(data));
+         clinicServices.getAllPets().then(resp => {
+             if(resp.status === 404){
+                setStatus(resp.status);
+             }
+             return resp.json();
+         }).then(data => setAllPets(data));
 
     },[allPets]);
+
+    if (status === 404) {
+        return <Fallback />
+      }
 
     return (
         <div className="col-md-10 offset-md-1">

@@ -38,7 +38,6 @@ function Manage({history}) {
             </aside>
             <div className="col-md-10 ">
                 <Switch>
-                    {/* <Route path="/manage/addPet" exact component={AddPet}></Route> */}
                     <Route path="/manage/listAllPets" exact component={ListAllPets}></Route>
                     <Route path="/manage/listAllUsers" exact component={ListAllUsers}></Route>
                     <Route path="/manage/userprofile/:userId" exact component={SingleUser}></Route>

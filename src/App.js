@@ -2,7 +2,6 @@ import './App.css';
 import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 import UserContext from './components/UserContext/UserContext';
-import UserInformationContext from './components/UserContext/UserInformationContext';
 import Login from './components/Login/Login';
 import Footer from './components/Footer/Footer';
 import Manage from './components/Manage/Manage';
@@ -12,6 +11,9 @@ import UserProfile from './components/UserProfile/UserProfile';
 import ChangeUserProfile from './components/ChangeUserProfile/ChangeUserProfile';
 import ViewPet from './components/ViewPet/ViewPet';
 import ChangePet from './components/ChangePet/ChangePet';
+import Fallback from './components/Fallback/Fallback';
+
+import { ErrorBoundary } from 'react-error-boundary';
 
 import { useState, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
@@ -61,21 +63,27 @@ function App() {
 
   console.log(currentUser);
 
+  function errorHandler(error,errorInfo){
+    console.log('Log',error,errorInfo);
+  }
+
   return (
     <div className="App">
       <UserContext.Provider value={{ userToken, setUserToken, currentUser, setCurrentUser }}>
         <Header />
-        <Switch>
-          <Route path="/" exact component={HomePage}></Route>
-          <Route path="/manage" component={Manage}></Route>
-          <Route path="/login" component={Login}></Route>
-          <Route path="/register" component={Register}></Route>
-          <Route path="/logout" component={Logout}></Route>
-          <Route path="/myprofile" exact component={UserProfile}></Route>
-          <Route path="/changeprofile" component={ChangeUserProfile}></Route>
-          <Route path="/viewPet/:petId" component={ViewPet}></Route>
-          <Route path="/changePet/:petId" component={ChangePet}></Route>
-        </Switch>
+        <ErrorBoundary FallbackComponent={Fallback} onError={errorHandler}>
+          <Switch>
+            <Route path="/" exact component={HomePage}></Route>
+            <Route path="/manage" component={Manage}></Route>
+            <Route path="/login" component={Login}></Route>
+            <Route path="/register" component={Register}></Route>
+            <Route path="/logout" component={Logout}></Route>
+            <Route path="/myprofile" exact component={UserProfile}></Route>
+            <Route path="/changeprofile" component={ChangeUserProfile}></Route>
+            <Route path="/viewPet/:petId" component={ViewPet}></Route>
+            <Route path="/changePet/:petId" component={ChangePet}></Route>
+          </Switch>
+        </ErrorBoundary>
         <Footer />
 
       </UserContext.Provider>

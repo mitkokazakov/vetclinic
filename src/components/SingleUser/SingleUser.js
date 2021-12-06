@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 import * as clinicServices from '../../services/clinicServices';
 
+import Fallback from '../Fallback/Fallback';
+
 function SingleUser({ match }) {
 
     let addPetBtnStyles = 'btn mt-3 ' + style.petsContainerAddButton;
@@ -12,11 +14,23 @@ function SingleUser({ match }) {
     let currentUserId = match.params.userId;
     const [userToDisplay, setUserToDisplay] = useState('');
     const [userPets, setUserPets] = useState([]);
+    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
 
     useEffect(() => {
-        clinicServices.getUserById(currentUserId).then(data => setUserToDisplay(data));
-        clinicServices.getPetsByUser(currentUserId).then(data => setUserPets(data));
+
+        clinicServices.getUserById(currentUserId)
+        .then(data => setUserToDisplay(data))
+        .catch(err => setHasError({hasError: true, message: err.message}));
+
+        clinicServices.getPetsByUser(currentUserId)
+        .then(data => setUserPets(data))
+        .catch(err => setHasError({hasError: true, message: err.message}));
+
     }, [currentUserId, userPets]);
+
+    if(errorInfo.hasError){
+        return <Fallback message = {errorInfo.message} />
+    }
 
     return (
         <div className={style.userContainer}>

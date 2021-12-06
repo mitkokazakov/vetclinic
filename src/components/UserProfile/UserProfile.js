@@ -6,6 +6,7 @@ import * as clinicServices from '../../services/clinicServices';
 import { Link } from 'react-router-dom';
 
 import UserContext from '../UserContext/UserContext';
+import Fallback from '../Fallback/Fallback';
 
 function UserProfile({ history }) {
 
@@ -14,12 +15,15 @@ function UserProfile({ history }) {
     let currentUserId = currentUser.userId;
 
     const [currentUserPets, setUserPets] = useState([]);
+    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
 
     let changeUserProfileButtonStyles = style.changeUserProfileButton + ' btn';
 
     useEffect(() => {
 
-        clinicServices.getPetsByUser(currentUserId).then(data => setUserPets(data));
+        clinicServices.getPetsByUser(currentUserId)
+                .then(data => setUserPets(data))
+                .catch(err => setHasError({hasError: true, message: err.message}));
 
     }, [currentUserId]);
 
@@ -27,6 +31,9 @@ function UserProfile({ history }) {
         history.push("/changeprofile");
     }
 
+    if(errorInfo.hasError){
+        return <Fallback message = {errorInfo.message} />
+    }
 
     return (
 

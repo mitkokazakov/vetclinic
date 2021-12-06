@@ -8,6 +8,8 @@ import { useEffect,useState } from 'react';
 
 import * as clinicServices from '../../services/clinicServices';
 
+import Fallback from '../Fallback/Fallback';
+
 const scheme = yup.object().shape({
 
     name: yup.string().min(2,"Pet name must be at least 2 characters").max(30,"Pet name must be max 30 characters long").required("The field is required"),
@@ -27,13 +29,16 @@ function ChangePet({match,history}) {
     let changePetButtonStyles = style.changePetButton + ' btn';
 
     const [currentPet, setCurrentPet] = useState({name: '', kind: '', breed: '', petId: ''});
+    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
 
     useEffect(() => {
 
         let isUnmount = false;
 
         if(!isUnmount){
-            clinicServices.getPetById(currentPetId).then(data => setCurrentPet(data));
+            clinicServices.getPetById(currentPetId)
+                    .then(data => setCurrentPet(data))
+                    .catch(err => setHasError({hasError: true, message: err.message}));
         }
         
         return () => {
@@ -56,6 +61,10 @@ function ChangePet({match,history}) {
         clinicServices.changePet(currentPetId,form);
 
         history.push(`/viewPet/${currentPetId}`);
+    }
+
+    if(errorInfo.hasError){
+        return <Fallback message = {errorInfo.message} />
     }
 
     return (

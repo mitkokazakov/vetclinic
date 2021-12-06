@@ -58,8 +58,7 @@ export const getUserById = (userId) => {
     const url = 'https://localhost:44384/auth/getuserbyid/' + userId;
 
     return fetch(url)
-        .then(result => result.json())
-        .catch(err => console.log(err));
+        .then(result => result.json());
 }
 
 export const changerUserInfo = (userInfo) => {
@@ -98,14 +97,14 @@ export const deletePet = (petId) => {
 
     return fetch(url,{
         method: "DELETE"
-    }).catch(err => console.log(err));
+    });
 }
 
 export const changePet = (petId, petInfo) => {
 
     const url = 'https://localhost:44384/pets/changepet/' + petId;
 
-    return  axios.put(url,petInfo).catch(err => console.log(err));
+    return  axios.put(url,petInfo);
 }
 
 export const getAllPets = () => {
@@ -129,8 +128,7 @@ export const getPetsByUser = (userId) => {
     const url = 'https://localhost:44384/pets/getpetsbyuser/' + userId;
 
     return fetch(url)
-        .then(result => result.json())
-        .catch(err => console.log(err));
+        .then(result => result.json());
 }
 
 export const getPetById = (petId) => {
@@ -151,8 +149,7 @@ export const addVisitation = (petId, visitation) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(visitation)
-    })
-        .catch(err => console.log(err))
+    });
 }
 
 export const getVisitations = (petId) => {

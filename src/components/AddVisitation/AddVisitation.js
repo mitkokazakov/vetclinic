@@ -8,6 +8,8 @@ import { useContext, useState, useEffect } from 'react';
 
 import * as clinicServices from '../../services/clinicServices';
 
+import Fallback from '../Fallback/Fallback';
+
 const scheme = yup.object().shape({
 
     reason: yup.string().min(3, "Reason must be at least 2 characters").max(100, "Reason must be max 100 characters long").required("The field is required"),
@@ -21,6 +23,8 @@ function AddVisitation({match, history}){
         resolver: yupResolver(scheme)
     });
 
+    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
+    
     let addVisitationInputStyles = style.addVisitationInput + ' form-control mt-2';
     let addVisitationButtonStyles = style.addVisitationButton + ' btn';
 
@@ -34,9 +38,14 @@ function AddVisitation({match, history}){
             description: e.target.description.value
         }
 
-        clinicServices.addVisitation(currentPetId, visitation);
+        clinicServices.addVisitation(currentPetId, visitation)
+                .catch(err => setHasError({hasError: true, message: err.message}));
 
         history.push(`/manage/viewPet/${currentPetId}`);
+    }
+
+    if(errorInfo.hasError){
+        return <Fallback message = {errorInfo.message} />
     }
 
     return (

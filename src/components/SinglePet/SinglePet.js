@@ -2,6 +2,10 @@ import PetImage from '../../images/8.jpg';
 import style from './SinglePet.module.css';
 import { Link,Redirect } from 'react-router-dom';
 
+import Fallback from '../Fallback/Fallback';
+
+import { useState } from 'react';
+
 import * as clinicServices from '../../services/clinicServices';
 
 function SinglePet({ name, breed, kind, age, petId, history }) {
@@ -12,13 +16,19 @@ function SinglePet({ name, breed, kind, age, petId, history }) {
 
     //let currentPetId = petId;
 
+    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
+
     function onClickDeleteBtn(e){
 
-        clinicServices.deletePet(petId);
+        clinicServices.deletePet(petId)
+                .catch(err => setHasError({hasError: true, message: err.message}));
 
         return <Redirect to="/manage/listAllPets" />
     }
 
+    if(errorInfo.hasError){
+        return <Fallback message = {errorInfo.message} />
+    }
 
     return (
 

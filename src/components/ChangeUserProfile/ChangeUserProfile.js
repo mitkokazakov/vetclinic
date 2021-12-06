@@ -9,6 +9,7 @@ import { useContext, useState, useEffect } from 'react';
 import * as clinicServices from '../../services/clinicServices';
 
 import UserContext from '../UserContext/UserContext';
+import Fallback from '../Fallback/Fallback';
 
 const scheme = yup.object().shape({
 
@@ -28,6 +29,8 @@ function ChangeUserProfile({history}) {
         resolver: yupResolver(scheme)
     });
 
+    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
+
     function onSubmitChangeUserHandler(data, e) {
         e.preventDefault();
 
@@ -45,13 +48,18 @@ function ChangeUserProfile({history}) {
 
         clinicServices.changerUserInfo(userToBeChangedInfo);
 
-        setCurrentUser(userToBeChangedInfo);
+        setCurrentUser(userToBeChangedInfo)
+                .catch(err => setHasError({hasError: true, message: err.message}));
 
         history.push("/myprofile");
     }
 
     let changeProfileInputStyles = style.changeProfileInput + ' form-control mt-2';
     let changeProfileButtonStyles = style.changeProfileButton + ' btn';
+
+    if(errorInfo.hasError){
+        return <Fallback message = {errorInfo.message} />
+    }
 
     return (
         <div className="row">

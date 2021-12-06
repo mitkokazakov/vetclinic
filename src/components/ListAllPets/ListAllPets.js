@@ -37,7 +37,7 @@ function ListAllPets() {
                 {
                     allPets.map(pet => {
 
-                        return <SinglePet key={pet.petId} petId={pet.petId} name={pet.name} kind={pet.kind} breed={pet.breed} />
+                        return <SinglePet key={pet.petId} petId={pet.petId} name={pet.name} kind={pet.kind} breed={pet.breed} age={pet.age}/>
                     })
                 }
                 

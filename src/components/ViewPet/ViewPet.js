@@ -2,6 +2,7 @@ import style from './ViewPet.module.css';
 import Image from '../../images/unknown.jpg';
 import UserContext from '../UserContext/UserContext';
 import Visitation from '../Visitation/Visitation';
+import Fallback from '../Fallback/Fallback';
 
 import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
@@ -14,16 +15,21 @@ function ViewPet({ match }) {
 
     let currentPetId = match.params.petId;
 
-    const [pet, setPet] = useState({ name: '', kind: '', breed: '', imageId: null });
+    const [pet, setPet] = useState({ name: '', kind: '', breed: '', imageId: null, age: 0 });
     const [visitations, setVisitations] = useState([]);
     const [petImage, setPetImage] = useState('');
-
+    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
 
 
     useEffect(() => {
 
-        clinicServices.getPetById(currentPetId).then(data => setPet(data));
-        clinicServices.getVisitations(currentPetId).then(data => setVisitations(data));
+        clinicServices.getPetById(currentPetId)
+                .then(data => setPet(data))
+                .catch(err => setHasError({hasError: true, message: err.message}));
+
+        clinicServices.getVisitations(currentPetId)
+                .then(data => setVisitations(data))
+                .catch(err => setHasError({hasError: true, message: err.message}));
 
         let imageUrl = null;
 
@@ -39,7 +45,9 @@ function ViewPet({ match }) {
     }, [pet]);
 
 
-
+    if(errorInfo.hasError){
+        return <Fallback message = {errorInfo.message} />
+    }
 
     return (
         <div className="row">
@@ -56,7 +64,7 @@ function ViewPet({ match }) {
                     <h3 className="mb-3">Name: {pet.name}</h3>
                     <h4 className="mb-3">Kind: {pet.kind}</h4>
                     <h5 className="mb-3">Breed: {pet.breed}</h5>
-                    <h6 className="mb-3">Age: </h6>
+                    <h6 className="mb-3">Age: {pet.age}</h6>
 
                     <Link to={`/changePet/${currentPetId}`} className={`btn ${style.petBtn}`}>Edit</Link>
                 </div>

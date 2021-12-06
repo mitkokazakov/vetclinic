@@ -1,5 +1,4 @@
 import axios from "axios";
-import Fallback from "../components/Fallback/Fallback";
 
 export const loginUser = (user) => {
 
@@ -139,8 +138,7 @@ export const getPetById = (petId) => {
     const url = 'https://localhost:44384/pets/getpetbyid/' + petId;
 
     return fetch(url)
-        .then(result => result.json())
-        .catch(err => console.log(err));
+        .then(result => result.json());
 }
 
 export const addVisitation = (petId, visitation) => {

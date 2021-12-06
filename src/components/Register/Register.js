@@ -4,7 +4,11 @@ import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+import { useState } from 'react';
+
 import * as clinicServices from '../../services/clinicServices';
+
+import Fallback from '../Fallback/Fallback';
 
 const scheme = yup.object().shape({
 
@@ -21,6 +25,8 @@ function Register({history}) {
         resolver: yupResolver(scheme)
     });
 
+    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
+
     let registerInputStyles = style.registerInput + ' form-control mt-2';
     let registerButtonStyles = style.registerButton + ' btn';
 
@@ -34,9 +40,14 @@ function Register({history}) {
             password: e.target.password.value
         }
 
-        clinicServices.registerUser(userToBeRegistered);
+        clinicServices.registerUser(userToBeRegistered)
+                    .catch(err => setHasError({hasError: true, message: err.message}));
 
-        history.push("/login");
+        //history.push("/login");
+    }
+
+    if(errorInfo.hasError){
+        return <Fallback message = {errorInfo.message} />
     }
 
     return (

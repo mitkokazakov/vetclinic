@@ -10,6 +10,7 @@ import * as clinicServices from '../../services/clinicServices';
 
 import UserContext from '../UserContext/UserContext';
 import SinglePet from '../SinglePet/SinglePet';
+import Fallback from '../Fallback/Fallback';
 
 const scheme = yup.object().shape({
     petName: yup.string().required("This Field is required")
@@ -26,11 +27,14 @@ function FindPet() {
     const [allFoundPets, setAllFoundPets] = useState([]);
     const [currentInputName, setCurrentInputName] = useState('');
     const [isSearched, setIsSearched] = useState(false);
+    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
 
     useEffect(() => {
 
         if(isSearched == true){
-            clinicServices.findPetsByName(currentInputName).then(data => setAllFoundPets(data));
+            clinicServices.findPetsByName(currentInputName)
+                    .then(data => setAllFoundPets(data))
+                    .catch(err => setHasError({hasError: true, message: err.message}));
         }
         
     }, [currentInputName]);
@@ -47,6 +51,10 @@ function FindPet() {
         setCurrentInputName(e.target.petName.value);
 
         
+    }
+
+    if(errorInfo.hasError){
+        return <Fallback message = {errorInfo.message} />
     }
 
     return (

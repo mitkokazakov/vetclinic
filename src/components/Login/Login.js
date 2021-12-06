@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from './Login.module.css';
 
-import { useContext } from 'react';
+import { useContext,useState } from 'react';
 
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
@@ -10,6 +10,7 @@ import * as yup from 'yup';
 import * as clinicServices from '../../services/clinicServices';
 
 import UserContext from '../UserContext/UserContext';
+import Fallback from '../Fallback/Fallback';
 
 const scheme = yup.object().shape({
     username: yup.string().email().required("Not valid email. Try again"),
@@ -24,6 +25,9 @@ function Login({history}) {
 
     const {userToken, setUserToken} = useContext(UserContext);
 
+    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
+
+
     function onSubmitHandler(data,e){
 
         e.preventDefault();
@@ -33,12 +37,21 @@ function Login({history}) {
             password: e.target.password.value
         }
         
-        clinicServices.loginUser(currentUser).then(result => result.json()).then(data => setUserToken(data.token));
-        history.push("/")
+        clinicServices.loginUser(currentUser)
+                .then(result => result.json())
+                .then(data => setUserToken(data.token))
+                .catch(err => setHasError({hasError: true, message: err.message}));
+
+        //history.push("/")
     }
 
     let loginInputStyles = style.loginInput + ' form-control mt-2';
     let loginButtonStyles = style.loginButton + ' btn';
+
+    if(errorInfo.hasError){
+        return <Fallback message = {errorInfo.message} />
+    }
+
 
     return (
 

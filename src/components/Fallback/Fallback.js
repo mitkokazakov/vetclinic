@@ -1,7 +1,10 @@
-function Fallback(){
+function Fallback({ message }) {
 
-    return(
-        <h2>Oopss. Something went Wrong</h2>
+    return (
+        <div>
+            <h2>Oopss. Something went Wrong</h2>
+            <p>{message}</p>
+        </div>
     );
 }
 

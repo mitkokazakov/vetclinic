@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 import * as clinicServices from '../../services/clinicServices';
 
 import UserContext from '../UserContext/UserContext';
-
+import Fallback from '../Fallback/Fallback';
 
 const scheme = yup.object().shape({
     userName: yup.string().required("This Field is required")
@@ -28,11 +28,14 @@ function FindUser() {
     const [allFoundUsers, setAllFoundUsers] = useState([]);
     const [currentInputName, setCurrentInputName] = useState('');
     const [isSearched, setIsSearched] = useState(false);
+    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
 
     useEffect(() => {
 
         if(isSearched == true){
-            clinicServices.findUsersByName(currentInputName).then(data => setAllFoundUsers(data));
+            clinicServices.findUsersByName(currentInputName)
+                    .then(data => setAllFoundUsers(data))
+                    .catch(err => setHasError({hasError: true, message: err.message}));
         }
         
     }, [currentInputName]);
@@ -49,6 +52,10 @@ function FindUser() {
         setCurrentInputName(e.target.userName.value);
 
         
+    }
+
+    if(errorInfo.hasError){
+        return <Fallback message = {errorInfo.message} />
     }
 
     return (

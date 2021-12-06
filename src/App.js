@@ -63,15 +63,13 @@ function App() {
 
   console.log(currentUser);
 
-  function errorHandler(error,errorInfo){
-    console.log('Log',error,errorInfo);
-  }
+
 
   return (
     <div className="App">
       <UserContext.Provider value={{ userToken, setUserToken, currentUser, setCurrentUser }}>
         <Header />
-        <ErrorBoundary FallbackComponent={Fallback} onError={errorHandler}>
+        
           <Switch>
             <Route path="/" exact component={HomePage}></Route>
             <Route path="/manage" component={Manage}></Route>
@@ -83,7 +81,7 @@ function App() {
             <Route path="/viewPet/:petId" component={ViewPet}></Route>
             <Route path="/changePet/:petId" component={ChangePet}></Route>
           </Switch>
-        </ErrorBoundary>
+        
         <Footer />
 
       </UserContext.Provider>

@@ -10,22 +10,21 @@ function ListAllPets() {
 
     const [allPets,setAllPets] = useState([]);
 
-    const [status,setStatus] = useState(200);
+    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
 
     useEffect(() => {
 
-         clinicServices.getAllPets().then(resp => {
-             if(resp.status === 404){
-                setStatus(resp.status);
-             }
-             return resp.json();
-         }).then(data => setAllPets(data));
+        
+         clinicServices.getAllPets()
+                .then(data => setAllPets(data))
+                .catch(err => setHasError({hasError: true, message: err.message}));
 
     },[allPets]);
 
-    if (status === 404) {
-        return <Fallback />
-      }
+
+    if(errorInfo.hasError){
+        return <Fallback message = {errorInfo.message} />
+    }
 
     return (
         <div className="col-md-10 offset-md-1">

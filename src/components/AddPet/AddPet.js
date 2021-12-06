@@ -4,7 +4,11 @@ import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+import { useState } from 'react';
+
 import * as clinicServices from '../../services/clinicServices';
+
+import Fallback from '../Fallback/Fallback';
 
 const scheme = yup.object().shape({
 
@@ -18,6 +22,8 @@ function AddPet({match, history}) {
     const {register,handleSubmit,formState: {errors}} = useForm({
         resolver: yupResolver(scheme)
     });
+
+    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
 
     let addPetInputStyles = style.addPetInput + ' form-control mt-2';
     let addPetButtonStyles = style.addPetButton + ' btn';
@@ -44,9 +50,14 @@ function AddPet({match, history}) {
         // }
 
     
-        clinicServices.addPet(userId,form);
+        clinicServices.addPet(userId,form)
+            .catch(err => setHasError({hasError: true, message: err.message}));
 
         history.push(`/manage/userprofile/${userId}`);
+    }
+
+    if(errorInfo.hasError){
+        return <Fallback message = {errorInfo.message} />
     }
 
     return (

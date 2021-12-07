@@ -16,21 +16,21 @@ const scheme = yup.object().shape({
     description: yup.string().min(3, "Description must be at least 2 characters").max(200, "Description must be max 200 characters long").required("The field is required")
 })
 
-function AddVisitation({match, history}){
+function AddVisitation({ match, history }) {
 
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(scheme)
     });
 
-    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
-    
+    const [errorInfo, setHasError] = useState({ hasError: false, message: '' });
+
     let addVisitationInputStyles = style.addVisitationInput + ' form-control mt-2';
     let addVisitationButtonStyles = style.addVisitationButton + ' btn';
 
     let currentPetId = match.params.petId;
 
-    function onSubmitAddVisitationHandler(data,e){
+    function onSubmitAddVisitationHandler(data, e) {
         e.preventDefault();
 
         let visitation = {
@@ -39,13 +39,18 @@ function AddVisitation({match, history}){
         }
 
         clinicServices.addVisitation(currentPetId, visitation)
-                .catch(err => setHasError({hasError: true, message: err.message}));
+            .then(resp => {
+                if (resp.status == 200) {
+                    return alert("A visitaion has been added successfully");
+                }
+            })
+            .catch(err => setHasError({ hasError: true, message: err.message }));
 
         history.push(`/manage/viewPet/${currentPetId}`);
     }
 
-    if(errorInfo.hasError){
-        return <Fallback message = {errorInfo.message} />
+    if (errorInfo.hasError) {
+        return <Fallback message={errorInfo.message} />
     }
 
     return (
@@ -64,7 +69,7 @@ function AddVisitation({match, history}){
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="description">Description</label>
-                    <textarea cols="10" rows="5"  className={addVisitationInputStyles} id="description" name="description" {...register("description")} />
+                    <textarea cols="10" rows="5" className={addVisitationInputStyles} id="description" name="description" {...register("description")} />
                     <span>{errors.description?.message}</span>
                 </div>
 

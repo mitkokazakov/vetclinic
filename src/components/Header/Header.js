@@ -21,7 +21,9 @@ function Header() {
                 <li className={style.li}><Link to="/">Home</Link></li>
                 <li className={style.li}><Link to="/#services">Services</Link></li>
                 <li className={style.li}><Link to="/#docs">Doctors</Link></li>
-                <li className={style.li}><Link to="/manage">Manage</Link></li>
+                {
+                    currentUser.role == "Admin" ? <li className={style.li}><Link to="/manage">Manage</Link></li> : null
+                }
                 {
                     currentUser.role == "User" ? <li className={style.li}><Link to="/myprofile">Profile</Link></li> : null
                 }

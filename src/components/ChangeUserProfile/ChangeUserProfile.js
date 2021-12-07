@@ -30,6 +30,7 @@ function ChangeUserProfile({history}) {
     });
 
     const [errorInfo, setHasError] = useState({hasError: false, message: ''});
+    const [api, setApi] = useState('');
 
     function onSubmitChangeUserHandler(data, e) {
         e.preventDefault();
@@ -46,16 +47,24 @@ function ChangeUserProfile({history}) {
             phone: e.target.phone.value
         }
 
-        clinicServices.changerUserInfo(userToBeChangedInfo);
-
-        setCurrentUser(userToBeChangedInfo)
+        clinicServices.changerUserInfo(userToBeChangedInfo)
+                .then(resp =>{
+                    if(resp.status == 200){
+                        return alert("User's information has been changed successfully");
+                    }
+                })
                 .catch(err => setHasError({hasError: true, message: err.message}));
+
+        setCurrentUser(userToBeChangedInfo);
+        
 
         history.push("/myprofile");
     }
 
     let changeProfileInputStyles = style.changeProfileInput + ' form-control mt-2';
     let changeProfileButtonStyles = style.changeProfileButton + ' btn';
+
+    
 
     if(errorInfo.hasError){
         return <Fallback message = {errorInfo.message} />

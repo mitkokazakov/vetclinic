@@ -1,7 +1,7 @@
 import style from './Manage.module.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Switch, Route, Link} from 'react-router-dom';
+import { Switch, Route, Link, Redirect} from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 
 import AddPet from '../AddPet/AddPet';
@@ -13,17 +13,17 @@ import ViewPet from '../ViewPet/ViewPet';
 import AddVisitation from '../AddVisitation/AddVisitation';
 import FindPet from '../FindPet/FindPet';
 import FindUser from '../FindUser/FindUser';
+import Fallback from '../Fallback/Fallback';
 
 function Manage({history}) {
 
     const {currentUser} = useContext(UserContext);
 
-    // useEffect(() => {
-    //     if(currentUser.isLogged == false){
-    //         history.push("/login");
-    //     }
-    // },[]);
 
+    if( currentUser.role != 'Admin'){
+        
+        return <Fallback message="Unauthorized user"/>
+    }
 
     return (
         <div className="row d-flex">

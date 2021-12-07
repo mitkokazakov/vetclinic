@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import style from './Login.module.css';
 
-import { useContext,useState } from 'react';
+import { useContext,useState, useEffect } from 'react';
 
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
@@ -23,7 +23,7 @@ function Login({history}) {
         resolver: yupResolver(scheme)
     });
 
-    const {userToken, setUserToken} = useContext(UserContext);
+    const {currentUser, setUserToken} = useContext(UserContext);
 
     const [errorInfo, setHasError] = useState({hasError: false, message: ''});
 
@@ -39,10 +39,12 @@ function Login({history}) {
         
         clinicServices.loginUser(currentUser)
                 .then(result => result.json())
-                .then(data => setUserToken(data.token))
+                .then(data => {
+                    setUserToken(data.token);
+                    history.push("/");
+                })
                 .catch(err => setHasError({hasError: true, message: err.message}));
 
-        //history.push("/")
     }
 
     let loginInputStyles = style.loginInput + ' form-control mt-2';

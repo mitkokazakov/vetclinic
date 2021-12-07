@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useEffect } from "react";
 
 export const loginUser = (user) => {
 
@@ -71,8 +72,7 @@ export const changerUserInfo = (userInfo) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(userInfo)
-    })
-        .catch(err => console.log(err))
+    });
 }
 
 export const addPet = (userId,petInfo) => {
@@ -157,6 +157,6 @@ export const getVisitations = (petId) => {
     const url = 'https://localhost:44384/pets/getvisitations/' + petId;
 
     return fetch(url)
-        .then(result => result.json())
-        .catch(err => console.log(err));
+        .then(result => result.json());
 }
+

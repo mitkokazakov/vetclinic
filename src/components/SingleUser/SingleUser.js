@@ -1,13 +1,16 @@
 import style from './SingleUser.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 
 import { Link } from 'react-router-dom';
 
 import * as clinicServices from '../../services/clinicServices';
 
 import Fallback from '../Fallback/Fallback';
+import UserContext from '../UserContext/UserContext';
 
 function SingleUser({ match }) {
+
+    const {currentUser} = useContext(UserContext);
 
     let addPetBtnStyles = 'btn mt-3 ' + style.petsContainerAddButton;
 
@@ -70,7 +73,9 @@ function SingleUser({ match }) {
                     })
                 }
 
-                <Link to={`/manage/addpet/${currentUserId}`} className={addPetBtnStyles}>Add Pet</Link>
+                {
+                    currentUser.role == 'Admin' ? <Link to={`/manage/addpet/${currentUserId}`} className={addPetBtnStyles}>Add Pet</Link> : null
+                }
             </div>
         </div>
     );

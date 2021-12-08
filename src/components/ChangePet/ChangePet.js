@@ -98,7 +98,7 @@ function ChangePet({ match, history }) {
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="image">Image</label>
-                    <input className={changePetInputStyles} type="file" name="image" id="image" />
+                    <input className={changePetInputStyles} type="file" name="image" id="image" accept="image/png, image/jpeg" />
 
                 </div>
 

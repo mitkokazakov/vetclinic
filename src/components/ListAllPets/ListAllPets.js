@@ -30,7 +30,6 @@ function ListAllPets() {
         <div className="col-md-10 offset-md-1">
             <div className={style.petsHeading}>
                 <h1>All Pets</h1>
-                <div className={style.petsHr}></div>
             </div>
 
             <div className="row d-flex justify-content-center">

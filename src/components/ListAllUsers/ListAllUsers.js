@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import * as clinicServices from '../../services/clinicServices';
 
+import style from './ListAllUsers.module.css';
+
 import Fallback from '../Fallback/Fallback';
 
 function ListAllUsers() {
@@ -26,7 +28,7 @@ function ListAllUsers() {
 
     return (
         <div className="col-md-10 offset-md-1 col-12">
-            <h1>List All Users</h1>
+            <h1 className={style.allUsersHeading}>List All Users</h1>
             <table className="table table-striped table-hover table-responsive col-md-6 col-xs-12">
                 <thead className="thead-dark">
                     <tr>

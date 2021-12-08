@@ -73,7 +73,7 @@ function ViewPet({ match }) {
             </div>
 
             <div className="col-md-6 offset-md-3 mt-4">
-                <h1>Visitations</h1>
+                <h1 className="mb-4">Visitations</h1>
                 {
                     visitations.map(v => {
                         return <Visitation key={v.id} date={v.date} reason={v.reason} description={v.description} />

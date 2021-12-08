@@ -5,7 +5,6 @@ function Contact() {
     return (
         <div className={style.contacts}>
             <h1>Contact Us</h1>
-            <div className={style.contactsHr}></div>
             <div className={style.contactContainer}>
                 <div className={style.contactAddress}>
                     <h4>Pet Care.</h4>

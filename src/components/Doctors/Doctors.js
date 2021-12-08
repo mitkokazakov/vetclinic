@@ -10,7 +10,6 @@ function Doctors() {
         <div className={style.doctors} id="docs">
             <div className={style.doctorsHeading}>
                 <h1>Doctors</h1>
-                <hr></hr>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa
                     semper aliquam quis mattis quam.</p>
             </div>

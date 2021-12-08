@@ -2,6 +2,13 @@
     margin-top: 60px;
 }
 
+.contacts>h1{
+    border-bottom: 5px solid #C22083;
+    width: 300px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
 .contactsHr{
     height: 4px;
     background-color: #C22083;
@@ -47,4 +54,5 @@
         margin-left: 0;
         margin-right: 0;
     }
+
 }

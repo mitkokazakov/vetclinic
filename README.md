@@ -1,3 +1,46 @@
+# VetClinic
+SoftUni project based on ReactJS
+
+## :information_source: How It Works
+-	Guest visitors:
+      - browse through home page;
+      - can log in.
+-	Users:
+     -  Have option to complete their patient’s profile if they didn’t;
+     -  Have access to their own profile;
+     -  Have access to all own registered pets;
+     -  Can change information about all their pets (Change picture, name, breed, kind);
+     -  Can make changes in their profile (e.g. Country, Town, Address).
+-     Admin:
+  -	Add pets to certain user;
+  -	Change information about certain pet;
+  -	Delete pets;
+  -	Add visitation to pet;
+  -	List all registered users;
+  -	List all added pets;
+  -	Find pet by name;
+  -	Find user by name;
+
+## :hammer_and_pick: Built With
+   - ReactJS
+   - Client-Side Routing
+   - Authentication
+   - Error Handling
+   - React Hooks
+   - Context API
+   - Data Validation - Client Side
+   - Responsive Design
+   - Bootstrap 5
+
+## :gear: Application Configurations
+
+The App use WebAPI based on ASP.NET Core for back-end
+
+would happen once you run the application, including Test Accounts:
+
+   -	Admin: mitko@tpp2.com / password: 88888888
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -39,32 +82,4 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

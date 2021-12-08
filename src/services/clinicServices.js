@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useEffect } from "react";
+
+const host = 'https://localhost:44384';
 
 export const loginUser = (user) => {
 
-    const url = 'https://localhost:44384/auth/login';
+    const url = host + '/auth/login';
 
     return fetch(url, {
         method: 'POST',
@@ -16,7 +17,7 @@ export const loginUser = (user) => {
 
 export const getUser = (token) => {
 
-    const url = 'https://localhost:44384/auth/user';
+    const url = host + '/auth/user';
 
     const finalUrl = url + `/${token}`;
 
@@ -27,7 +28,7 @@ export const getUser = (token) => {
 
 export const registerUser = (user) => {
 
-    const url = 'https://localhost:44384/auth/register';
+    const url = host + '/auth/register';
 
     return fetch(url, {
         method: "POST",
@@ -40,7 +41,7 @@ export const registerUser = (user) => {
 
 export const getAllUsers = () => {
 
-    const url = 'https://localhost:44384/auth/allusers';
+    const url = host + '/auth/allusers';
 
     return fetch(url)
         .then(result => result.json());
@@ -48,7 +49,7 @@ export const getAllUsers = () => {
 
 export const findUsersByName = (userName) => {
 
-    const url = 'https://localhost:44384/auth/findusersbyname/' + userName;
+    const url = host + '/auth/findusersbyname/' + userName;
 
     return fetch(url)
         .then(result => result.json());
@@ -56,7 +57,7 @@ export const findUsersByName = (userName) => {
 
 export const getUserById = (userId) => {
 
-    const url = 'https://localhost:44384/auth/getuserbyid/' + userId;
+    const url = host + '/auth/getuserbyid/' + userId;
 
     return fetch(url)
         .then(result => result.json());
@@ -64,7 +65,7 @@ export const getUserById = (userId) => {
 
 export const changerUserInfo = (userInfo) => {
 
-    const url = 'https://localhost:44384/auth/changeuser';
+    const url = host + '/auth/changeuser';
 
     return fetch(url,{
         method: "POST",
@@ -77,7 +78,7 @@ export const changerUserInfo = (userInfo) => {
 
 export const addPet = (userId,petInfo) => {
 
-    const url = 'https://localhost:44384/pets/addpet/' + userId;
+    const url = host + '/pets/addpet/' + userId;
 
     // return fetch(url, {
     //     method: "POST",
@@ -93,7 +94,7 @@ export const addPet = (userId,petInfo) => {
 
 export const deletePet = (petId) => {
 
-    const url = 'https://localhost:44384/pets/deletepet/' + petId;
+    const url = host + '/pets/deletepet/' + petId;
 
     return fetch(url,{
         method: "DELETE"
@@ -102,14 +103,14 @@ export const deletePet = (petId) => {
 
 export const changePet = (petId, petInfo) => {
 
-    const url = 'https://localhost:44384/pets/changepet/' + petId;
+    const url = host + '/pets/changepet/' + petId;
 
     return  axios.put(url,petInfo);
 }
 
 export const getAllPets = () => {
 
-    const url = 'https://localhost:44384/pets/getallpets';
+    const url = host + '/pets/getallpets';
 
     return fetch(url)
         .then(result => result.json());
@@ -117,7 +118,7 @@ export const getAllPets = () => {
 
 export const findPetsByName = (petName) => {
 
-    const url = 'https://localhost:44384/pets/findpetsbyname/' + petName;
+    const url = host + '/pets/findpetsbyname/' + petName;
 
     return fetch(url)
         .then(result => result.json());
@@ -125,7 +126,7 @@ export const findPetsByName = (petName) => {
 
 export const getPetsByUser = (userId) => {
 
-    const url = 'https://localhost:44384/pets/getpetsbyuser/' + userId;
+    const url = host + '/pets/getpetsbyuser/' + userId;
 
     return fetch(url)
         .then(result => result.json());
@@ -133,7 +134,7 @@ export const getPetsByUser = (userId) => {
 
 export const getPetById = (petId) => {
 
-    const url = 'https://localhost:44384/pets/getpetbyid/' + petId;
+    const url = host + '/pets/getpetbyid/' + petId;
 
     return fetch(url)
         .then(result => result.json());
@@ -141,7 +142,7 @@ export const getPetById = (petId) => {
 
 export const addVisitation = (petId, visitation) => {
 
-    const url = 'https://localhost:44384/pets/addvisitation/' + petId;
+    const url = host + '/pets/addvisitation/' + petId;
 
     return fetch(url,{
         method: "POST",
@@ -154,7 +155,7 @@ export const addVisitation = (petId, visitation) => {
 
 export const getVisitations = (petId) => {
 
-    const url = 'https://localhost:44384/pets/getvisitations/' + petId;
+    const url = host + '/pets/getvisitations/' + petId;
 
     return fetch(url)
         .then(result => result.json());

@@ -80,14 +80,6 @@ export const addPet = (userId,petInfo) => {
 
     const url = host + '/pets/addpet/' + userId;
 
-    // return fetch(url, {
-    //     method: "POST",
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(petInfo)
-    // }).catch(err => console.log(err));
-
     return  axios.post(url,petInfo);
 
 }

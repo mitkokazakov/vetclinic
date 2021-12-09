@@ -4,7 +4,7 @@ import axios from "axios";
 //const host = 'https://localhost:44384';
 
 //This is link for the API uploaded on smarterASP
-const host = 'https://mitkokazakov-001-site1.itempurl.com';
+const host = 'http://mitkokazakov-001-site1.itempurl.com';
 
 export const loginUser = (user) => {
 

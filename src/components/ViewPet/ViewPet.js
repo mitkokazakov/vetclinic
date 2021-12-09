@@ -37,7 +37,11 @@ function ViewPet({ match }) {
             imageUrl = Image;
         }
         else {
-            imageUrl = `https://localhost:44384/pets/getimage/${currentPetId}`;
+            //The url to hosted API
+            imageUrl = `http://mitkokazakov-001-site1.itempurl.com/pets/getimage/${currentPetId}`;
+
+            //The url from the localhost
+            //imageUrl = `https://localhost:44384/pets/getimage/${currentPetId}`;
         }
 
         setPetImage(imageUrl);
@@ -64,7 +68,7 @@ function ViewPet({ match }) {
                     <h3 className="mb-3">Name: {pet.name}</h3>
                     <h4 className="mb-3">Kind: {pet.kind}</h4>
                     <h5 className="mb-3">Breed: {pet.breed}</h5>
-                    <h6 className="mb-3">Age: {pet.age}</h6>
+                    <h6 className="mb-3">Age: {pet.age} years</h6>
 
                     <Link to={`/changePet/${currentPetId}`} className={`btn ${style.petBtn}`}>Edit</Link>
                 </div>

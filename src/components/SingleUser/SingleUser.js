@@ -10,29 +10,37 @@ import UserContext from '../UserContext/UserContext';
 
 function SingleUser({ match }) {
 
-    const {currentUser} = useContext(UserContext);
+    const { currentUser } = useContext(UserContext);
 
     let addPetBtnStyles = 'btn mt-3 ' + style.petsContainerAddButton;
 
     let currentUserId = match.params.userId;
     const [userToDisplay, setUserToDisplay] = useState('');
     const [userPets, setUserPets] = useState([]);
-    const [errorInfo, setHasError] = useState({hasError: false, message: ''});
+    const [errorInfo, setHasError] = useState({ hasError: false, message: '' });
 
     useEffect(() => {
 
-        clinicServices.getUserById(currentUserId)
-        .then(data => setUserToDisplay(data))
-        .catch(err => setHasError({hasError: true, message: err.message}));
+        let isUnmount = false;
 
-        clinicServices.getPetsByUser(currentUserId)
-        .then(data => setUserPets(data))
-        .catch(err => setHasError({hasError: true, message: err.message}));
+        if (!isUnmount) {
+            clinicServices.getUserById(currentUserId)
+                .then(data => setUserToDisplay(data))
+                .catch(err => setHasError({ hasError: true, message: err.message }));
+
+            clinicServices.getPetsByUser(currentUserId)
+                .then(data => setUserPets(data))
+                .catch(err => setHasError({ hasError: true, message: err.message }));
+        }
+
+        return () => {
+            isUnmount = true;
+        }
 
     }, [currentUserId, userPets]);
 
-    if(errorInfo.hasError){
-        return <Fallback message = {errorInfo.message} />
+    if (errorInfo.hasError) {
+        return <Fallback message={errorInfo.message} />
     }
 
     return (

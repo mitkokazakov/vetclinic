@@ -28,7 +28,7 @@ function SinglePet({ name, breed, kind, age, petId, imageId }) {
         }
         else {
             //The url to hosted API
-            imageUrl = `http://mitkokazakov-001-site1.itempurl.com/pets/getimage/${petId}`;
+            imageUrl = `https://mitkokazakov-001-site1.itempurl.com/pets/getimage/${petId}`;
 
             //The url from the localhost
             //imageUrl = `https://localhost:44384/pets/getimage/${currentPetId}`;

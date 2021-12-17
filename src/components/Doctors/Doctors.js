@@ -18,7 +18,7 @@ function Doctors() {
                     <div className={style.doctorContainer}>
                         <img src={ImageDoc1} className={style.doctorImage} />
                         <div className={style.doctorInfo}>
-                            <h4>Dr. Jonh Dow</h4>
+                            <h4>Dr. Sarah Nielson</h4>
                             <h5>Founder</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
                         </div>
@@ -30,8 +30,8 @@ function Doctors() {
                     <div className={style.doctorContainer}>
                         <img src={ImageDoc2} className={style.doctorImage} />
                         <div className={style.doctorInfo}>
-                            <h4>Dr. Jonh Dow</h4>
-                            <h5>Founder</h5>
+                            <h4>Dr. Mathew Bryan</h4>
+                            <h5>Surgeon</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
                         </div>
                        
@@ -42,8 +42,8 @@ function Doctors() {
                     <div className={style.doctorContainer}>
                         <img src={ImageDoc3} className={style.doctorImage} />
                         <div className={style.doctorInfo}>
-                            <h4>Dr. Jonh Dow</h4>
-                            <h5>Founder</h5>
+                            <h4>Dr. Sam Bosvelt</h4>
+                            <h5>ER</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
                         </div>
                        
@@ -54,8 +54,8 @@ function Doctors() {
                     <div className={style.doctorContainer}>
                         <img src={ImageDoc4} className={style.doctorImage} />
                         <div className={style.doctorInfo}>
-                            <h4>Dr. Jonh Dow</h4>
-                            <h5>Founder</h5>
+                            <h4>Dr. Peter McDonald</h4>
+                            <h5>Anesthesiologist</h5>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit eget risus vitae massa.</p>
                         </div>
                        

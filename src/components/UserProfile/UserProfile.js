@@ -31,6 +31,10 @@ function UserProfile({ history }) {
         history.push("/changeprofile");
     }
 
+    if(currentUser.role != "User"){
+        return <Fallback message = "Unauthorized user. Sorry !" />
+    }
+
     if(errorInfo.hasError){
         return <Fallback message = {errorInfo.message} />
     }

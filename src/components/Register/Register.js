@@ -53,11 +53,17 @@ function Register({ history }) {
 
         clinicServices.registerUser(userToBeRegistered)
             .then(resp => {
+
+                console.log(resp.status);
+
                 if (resp.status == 200) {
                     history.push("/login")
                     return alert("The registration has been successfully");
                 }
-                
+                if (resp.status === 409) {
+                    
+                    setHasError({ hasError: true, message: "User with this email already exist!!" });
+                }
             })
             .catch(err => setHasError({ hasError: true, message: err.message }));
 

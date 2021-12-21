@@ -38,7 +38,14 @@ function Login({history}) {
         }
         
         clinicServices.loginUser(currentUser)
-                .then(result => result.json())
+                .then(resp =>  {
+                    if(resp.status == 401){
+                        return alert("Wrong password or email !!");
+                    }
+                    else{
+                         return resp.json(); 
+                    }
+                })
                 .then(data => {
                     setUserToken(data.token);
                     history.push("/");

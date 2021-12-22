@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+import swal from 'sweetalert';
+
 import { useContext, useState, useEffect } from 'react';
 
 import * as clinicServices from '../../services/clinicServices';
@@ -50,7 +52,11 @@ function ChangeUserProfile({history}) {
         clinicServices.changerUserInfo(userToBeChangedInfo)
                 .then(resp =>{
                     if(resp.status == 200){
-                        return alert("User's information has been changed successfully");
+                        //return alert("User's information has been changed successfully");
+                        swal({
+                            icon: "success",
+                            title: "User's information has been changed successfully"
+                        });
                     }
                 })
                 .catch(err => setHasError({hasError: true, message: err.message}));

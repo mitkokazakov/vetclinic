@@ -4,6 +4,8 @@ import { Link, Redirect } from 'react-router-dom';
 
 import Fallback from '../Fallback/Fallback';
 
+import swal from 'sweetalert';
+
 import { useState, useEffect } from 'react';
 
 import * as clinicServices from '../../services/clinicServices';
@@ -38,7 +40,15 @@ function SinglePet({ name, breed, kind, age, petId, imageId }) {
 
     function onClickDeleteBtn(e) {
 
-        clinicServices.deletePet(petId)
+        clinicServices.deletePet(petId).then(resp => {
+
+            if(resp.status == 200){
+                swal({
+                    icon: "success",
+                    title: "The pet was deleted !"
+                });
+            }
+        })
             .catch(err => setHasError({ hasError: true, message: err.message }));
 
         return <Redirect to="/manage/listAllPets" />

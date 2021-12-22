@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+import swal from 'sweetalert';
+
 import { useContext, useState, useEffect } from 'react';
 
 import * as clinicServices from '../../services/clinicServices';
@@ -41,7 +43,12 @@ function AddVisitation({ match, history }) {
         clinicServices.addVisitation(currentPetId, visitation)
             .then(resp => {
                 if (resp.status == 200) {
-                    return alert("A visitaion has been added successfully");
+                    //return alert("A visitaion has been added successfully");
+                    swal({
+                        icon: "success",
+                        title: "A visitaion has been added successfully"
+
+                    });
                 }
             })
             .catch(err => setHasError({ hasError: true, message: err.message }));

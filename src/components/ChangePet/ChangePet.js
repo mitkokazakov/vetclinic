@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+import swal from 'sweetalert';
+
 import { useEffect, useState } from 'react';
 
 import * as clinicServices from '../../services/clinicServices';
@@ -61,7 +63,12 @@ function ChangePet({ match, history }) {
         clinicServices.changePet(currentPetId, form)
             .then(resp => {
                 if (resp.status == 200) {
-                    return alert("Pets's information has been changed successfully");
+                    //return alert("Pets's information has been changed successfully");
+                    swal({
+                        icon: "success",
+                        title: "Pets's information has been changed successfully"
+
+                    });
                 }
             });
 

@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+import swal from 'sweetalert';
+
 import { useState, useEffect, useContext } from 'react';
 
 import * as clinicServices from '../../services/clinicServices';
@@ -58,11 +60,22 @@ function Register({ history }) {
 
                 if (resp.status == 200) {
                     history.push("/login")
-                    return alert("The registration has been successfully");
+                    swal({
+                        icon: "success",
+                        title: "The registration has been successful !!",
+                        text: "You can now log in ."
+
+                    });
                 }
                 if (resp.status === 409) {
                     
-                    setHasError({ hasError: true, message: "User with this email already exist!!" });
+                    //setHasError({ hasError: true, message: "User with this email already exist!!" });
+                    swal({
+                        icon: "error",
+                        title: "Sorry! There is already user with this email !",
+                        text: "Please try again with a valid email ."
+
+                    });
                 }
             })
             .catch(err => setHasError({ hasError: true, message: err.message }));

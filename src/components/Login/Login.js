@@ -7,6 +7,8 @@ import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+import swal from 'sweetalert';
+
 import * as clinicServices from '../../services/clinicServices';
 
 import UserContext from '../UserContext/UserContext';
@@ -40,7 +42,12 @@ function Login({history}) {
         clinicServices.loginUser(currentUser)
                 .then(resp =>  {
                     if(resp.status == 401){
-                        return alert("Wrong password or email !!");
+                        return swal({
+                            icon: "error",
+                            title: "Wrong email or password !!",
+                            text: "Please try again with valid credentials."
+
+                        });
                     }
                     else{
                          return resp.json(); 

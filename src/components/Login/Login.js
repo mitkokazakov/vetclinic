@@ -13,6 +13,7 @@ import * as clinicServices from '../../services/clinicServices';
 
 import UserContext from '../UserContext/UserContext';
 import Fallback from '../Fallback/Fallback';
+import Alert from '../Alert/Alert';
 
 const scheme = yup.object().shape({
     username: yup.string().email().required("Not valid email. Try again"),
@@ -42,12 +43,14 @@ function Login({history}) {
         clinicServices.loginUser(currentUser)
                 .then(resp =>  {
                     if(resp.status == 401){
-                        return swal({
+                         swal({
                             icon: "error",
                             title: "Wrong email or password !!",
                             text: "Please try again with valid credentials."
 
                         });
+
+                        history.push("/login");
                     }
                     else{
                          return resp.json(); 

@@ -41,3 +41,7 @@ hr {
 li{
   list-style: none;
 }
+
+.swal-footer {
+  text-align: center;
+}

@@ -72,15 +72,17 @@ function AddPet({match, history}) {
                 <div className="form-group mb-3">
                     <label htmlFor="name">Name</label>
                     <input type="text" className={addPetInputStyles} id="name" name="name" placeholder="Name..." {...register("name")} />
-
+                    <span className="text-danger">{errors.name?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="kind">Kind</label>
                     <input type="text" className={addPetInputStyles} id="kind" name="kind" placeholder="Kind..." {...register("kind")} />
+                    <span className="text-danger">{errors.kind?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="breed">Breed</label>
                     <input type="text" className={addPetInputStyles} id="breed" name="breed" placeholder="Breed..." {...register("breed")} />
+                    <span className="text-danger">{errors.breed?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="birthDate">Date Of Birth</label>

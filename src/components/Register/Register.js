@@ -19,7 +19,7 @@ const scheme = yup.object().shape({
     lastName: yup.string().min(2, "Last name must be at least 2 characters").max(30, "Last name must be max 30 characters long").required("The field is required"),
     email: yup.string().email("This is not a valid email!").required("The field is required"),
     password: yup.string().min(6, "The password must at least 6 characters long"),
-    confirmPassword: yup.string().oneOf([yup.ref("password"), null])
+    confirmPassword: yup.string().oneOf([yup.ref("password"), null],"Passwords must match")
 })
 
 function Register({ history }) {
@@ -98,29 +98,29 @@ function Register({ history }) {
                 </div>
 
                 <div className="form-group mb-3">
-                    <label htmlFor="firstName">First name</label>
+                    <label htmlFor="firstName">First Name</label>
                     <input type="text" className={registerInputStyles} id="firstName" name="firstName" placeholder="First Name..." {...register("firstName")} />
-                    <span>{errors.firstName?.message}</span>
+                    <span className="text-danger">{errors.firstName?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="lastName">Last Name</label>
                     <input type="text" className={registerInputStyles} id="lastName" name="lastName" placeholder="Last Name..." {...register("lastName")} />
-                    <span>{errors.lastName?.message}</span>
+                    <span className="text-danger">{errors.lastName?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="email">Email</label>
                     <input type="text" className={registerInputStyles} id="email" name="email" placeholder="Email..." {...register("email")} />
-                    <span>{errors.email?.message}</span>
+                    <span className="text-danger">{errors.email?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="password">Password</label>
                     <input type="password" className={registerInputStyles} id="password" name="password" name="password" {...register("password")} />
-                    <span>{errors.password?.message}</span>
+                    <span className="text-danger">{errors.password?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="confirmPassword">Confirm Password</label>
                     <input type="password" className={registerInputStyles} id="confirmPassword" name="confirmPassword" {...register("confirmPassword")} />
-                    <span>{errors.confirmPassword?.message}</span>
+                    <span className="text-danger">{errors.confirmPassword?.message}</span>
                 </div>
 
                 <button type="submit" className={registerButtonStyles}>Register</button>

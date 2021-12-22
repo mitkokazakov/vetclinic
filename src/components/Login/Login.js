@@ -3,6 +3,7 @@ import style from './Login.module.css';
 
 import { useContext,useState, useEffect } from 'react';
 
+
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -50,7 +51,6 @@ function Login({history}) {
 
                         });
 
-                        history.push("/login");
                     }
                     else{
                          return resp.json(); 

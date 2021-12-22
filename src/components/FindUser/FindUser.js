@@ -69,7 +69,7 @@ function FindUser() {
                 <div className="form-group mb-3">
                     <label htmlFor="userName">User Name</label>
                     <input type="text" className={findUserInputStyles} id="userName" name="userName" placeholder="Jack..." {...register("userName")} />
-                    <span>{errors.userName?.message}</span>
+                    <span className="text-danger">{errors.userName?.message}</span>
                 </div>
 
                 <button type="submit" className={findUserButtonStyles}>Find</button>

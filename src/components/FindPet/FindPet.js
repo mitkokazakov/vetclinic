@@ -68,7 +68,7 @@ function FindPet() {
                 <div className="form-group mb-3">
                     <label htmlFor="petName">Pet Name</label>
                     <input type="text" className={findPetInputStyles} id="petName" name="petName" placeholder="Jack..." {...register("petName")} />
-                    <span>{errors.petName?.message}</span>
+                    <span className="text-danger">{errors.petName?.message}</span>
                 </div>
 
                 <button type="submit" className={findPetButtonStyles}>Find</button>
@@ -85,7 +85,7 @@ function FindPet() {
                     {
                         allFoundPets.map(pet => {
 
-                            return <SinglePet key={pet.petId} petId={pet.petId} name={pet.name} kind={pet.kind} breed={pet.breed} />
+                            return <SinglePet key={pet.petId} petId={pet.petId} name={pet.name} kind={pet.kind} breed={pet.breed} imageId={pet.imageId} age={pet.age}/>
                         })
                     }
 

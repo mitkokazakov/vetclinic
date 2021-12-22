@@ -91,17 +91,17 @@ function ChangePet({ match, history }) {
                 <div className="form-group mb-3">
                     <label htmlFor="name">Name</label>
                     <input type="text" className={changePetInputStyles} id="name" name="name" {...register("name")} value={currentPet.name} onChange={(e) => setCurrentPet(oldState => ({ ...oldState, name: e.target.value }))} />
-                    <span>{errors.name?.message}</span>
+                    <span className="text-danger">{errors.name?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="kind">Kind</label>
                     <input type="text" className={changePetInputStyles} id="kind" name="kind" {...register("kind")} value={currentPet.kind} onChange={(e) => setCurrentPet(oldState => ({ ...oldState, kind: e.target.value }))} />
-                    <span>{errors.kind?.message}</span>
+                    <span className="text-danger">{errors.kind?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="breed">Breed</label>
                     <input type="text" className={changePetInputStyles} id="breed" name="breed" {...register("breed")} value={currentPet.breed} onChange={(e) => setCurrentPet(oldState => ({ ...oldState, breed: e.target.value }))} />
-                    <span>{errors.breed?.message}</span>
+                    <span className="text-danger">{errors.breed?.message}</span>
                 </div>
                 <div className="form-group mb-3">
                     <label htmlFor="image">Image</label>
